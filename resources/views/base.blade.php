@@ -11,39 +11,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<style type="text/css">
-		body{
-	        font-family: "Clear Sans", "Helvetica Neue","sans-serif";
-	        -moz-osx-font-smoothing: grayscale;
-	        -webkit-font-smoothing: antialiased;
-	        text-rendering: optimizeLegibility;
-	    }
-
-	    textarea:focus, input:focus{
-		    outline: none;
-		}
-
-	    .whatsapp-btn{
-	    	background: linear-gradient(44.91deg, #102397 0%, #187ADF 55.27%, #00EAF8 100%);
-	    	box-shadow: 0 15px 45px 1px rgba(23,128,224,0.21);
-	    	color: #FBFBFB;
-	    }
-
-	    .nav-link{
-	    	color:#1E8EC8;
-	    }
-
-	    .this-black{
-	    	color:#47495A;
-	    }
-
-	    .this-grey{
-	    	color:#9B9B9B;
-	    }
-
-	    .input-color{
-	    	color:#DE9A29;
-	    }
+		
 	</style>
+	<link rel="stylesheet" href="/css/style.css">
 	@yield('head')
 </head>
 <body>
