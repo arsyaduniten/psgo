@@ -15,8 +15,19 @@ textarea:focus, input:focus{
 	color: #FBFBFB;
 }
 
+.info-btn:hover{
+	background: linear-gradient(44.91deg, #102397 0%, #187ADF 55.27%, #00EAF8 100%);
+	box-shadow: 0 15px 45px 1px rgba(23,128,224,0.21);
+	color: #FBFBFB;
+	border:none;
+}
+
 .nav-link{
 	color:#1E8EC8;
+}
+
+.text-20{
+	font-size: 20px;
 }
 
 .this-black{
