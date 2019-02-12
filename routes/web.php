@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('public.landing');
 });
+
+Route::get('/plans', function () {
+    return view('public.plans');
+});
