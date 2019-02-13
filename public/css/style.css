@@ -5,7 +5,7 @@ body{
     text-rendering: optimizeLegibility;
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus, button:focus{
     outline: none;
 }
 
@@ -15,11 +15,25 @@ textarea:focus, input:focus{
 	color: #FBFBFB;
 }
 
+.blue-btn{
+	background: linear-gradient(44.91deg, #102397 0%, #187ADF 55.27%, #00EAF8 100%);
+	color: #FBFBFB;
+}
+
+.info-btn{
+	border-width: 2px;
+	border-image: linear-gradient(44.91deg, #102397 0%, #187ADF 55.27%, #00EAF8 100%);
+    border-image-slice: 1;
+    -webkit-transition: background 2s ease;
+	-moz-transition: background 2s ease;
+	-o-transition: background 2s ease;
+	transition: background 2s ease;
+}
+
 .info-btn:hover{
 	background: linear-gradient(44.91deg, #102397 0%, #187ADF 55.27%, #00EAF8 100%);
 	box-shadow: 0 15px 45px 1px rgba(23,128,224,0.21);
 	color: #FBFBFB;
-	border:none;
 }
 
 .nav-link{
@@ -56,4 +70,12 @@ textarea:focus, input:focus{
 
 .text-blue{
 	color: #283583;
+}
+
+.header-bg{
+	background-color: #F6FAFD;
+}
+
+.nav-bg{
+	background-color: #FAFBFE;
 }

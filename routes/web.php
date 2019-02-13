@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/plans', function () {
     return view('public.plans');
 });
+
+Route::get('/info', function () {
+    return view('public.info');
+});
