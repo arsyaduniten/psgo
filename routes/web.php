@@ -22,3 +22,7 @@ Route::get('/plans', function () {
 Route::get('/info', function () {
     return view('public.info');
 });
+
+Route::get('/traveller-info', function () {
+    return view('public.traveller-info');
+});
