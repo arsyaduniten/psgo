@@ -30,26 +30,49 @@
 			<button class="bg-transparent border-2 border-blue pb-4 py-2 my-2 mx-10 info-btn this-black nav-btn">Traveller 3</button>
 			<button class="bg-transparent border-2 border-blue pb-4 py-2 my-2 mx-10 info-btn this-black nav-btn">Traveller 4</button>
 		</div>
-		<div class="qa-section" id="medical-expenses" hidden>
-			<div class="qa m-6">
-				<p class="text-blue-darker font-bold text-lg">Name</p>
-				<p class="text-lg this-black">Lorem ipsum donor amet donor amet donor</p>
+		<form class="form flex flex-col" id="traveller-2">
+			<div class="flex">
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
+					<input type="text" name="fullname" class="px-6 p-2 border border-grey-dark">
+				</div>
+				<div class="flex flex-col p-4">
+					<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
+					<div class="flex border border-grey-dark">
+						<select class="p-2 border-r border-grey-dark rounded-none">
+						  <option value="ic">IC</option>
+						  <option value="passport">Passport</option>
+						</select>
+						<input type="text" name="id" class="px-6 p-2">
+					</div>
+				</div>
 			</div>
-			<div class="qa m-6">
-				<p class="text-blue-darker font-bold text-lg">Lorem ipsum donor amet?</p>
-				<p class="text-lg this-black">Lorem ipsum donor amet donor amet donor</p>
+			<div class="flex -my-6">
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Email<span class="text-red p-2">*</span></label>
+					<input type="text" name="email" class="px-6 p-2 border border-grey-dark">
+				</div>
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
+					<div class="flex border border-grey-dark">
+						<button class="px-6 p-2 border-r border-grey-dark" disabled>+60</button>
+						<input type="text" name="phone_number" class="px-6 p-2">
+					</div>
+				</div>
 			</div>
-			<div class="qa m-6">
-				<p class="text-blue-darker font-bold text-lg">Lorem ipsum donor amet?</p>
-				<p class="text-lg this-black">Lorem ipsum donor amet donor amet donor</p>
+			<div class="flex">
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Nationality<span class="text-red p-2">*</span></label>
+					<select class="px-6 p-2 border border-grey-dark rounded-none bg-white" name="nationality">
+						<option value="my">Malaysia</option>
+						<option value="sg">Singapore</option>
+					</select>
+				</div>
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
+					<input type="date" name="dob" class="px-6 p-2">
+				</div>
 			</div>
-			<div class="qa m-6">
-				<p class="text-blue-darker font-bold text-lg">Lorem ipsum donor amet?</p>
-				<p class="text-lg this-black">Lorem ipsum donor amet donor amet donor</p>
-			</div>
-		</div>
-		<form class="form" id="traveller-2">
-			
 		</form>
 		<div class="pricing mx-24">
 			<div class="flex justify-center content-start pt-8">
