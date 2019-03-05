@@ -70,7 +70,13 @@
 				</div>
 				<div class="flex-1 flex flex-col p-4">
 					<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
-					<input type="date" name="dob" class="px-6 p-2">
+					<input type="date" name="dob" class="px-6 p-1 border border-grey-dark">
+				</div>
+				<div class="flex-1 flex flex-col p-4">
+					<label class="py-2">Gender<span class="text-red p-2">*</span></label>
+					<div>
+						<button name="male" class="p-2 rounded-l border border-grey-dark">Male</button><button name="female" class="p-2 rounded-r border border-grey-dark border-l-none">Female</button>
+					</div>
 				</div>
 			</div>
 		</form>
