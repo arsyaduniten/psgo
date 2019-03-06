@@ -2,7 +2,7 @@
 	<div class="flex-auto w-2/3">
 		<img class="" src="/images/pslogo@1x.png">
 	</div>
-	<div class="flex flex-auto w-1/3">
+	<div class="hidden md:flex flex-auto w-1/3">
 		<a class="text-xl font-bold nav-link p-4">Home</a>
 		<a class="text-xl nav-link p-4">About Us</a>
 		<a class="text-xl nav-link p-4">Blog</a>
