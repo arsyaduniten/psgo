@@ -28,3 +28,5 @@ Route::get('/info', function () {
 Route::get('/traveller-info', function () {
     return view('public.traveller-info');
 });
+
+Route::post('/traveller-info', 'TravellerController@create')->name('traveller-info');
