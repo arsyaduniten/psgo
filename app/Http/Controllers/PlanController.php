@@ -48,57 +48,82 @@ class PlanController extends Controller
 	    	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][0];
 	    	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][4];
 	    	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][9];
-	    	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][9];
+	    	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][30];
 
 	    	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][0];
 	    	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][4];
 	    	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][9];
-	    	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][9];
+	    	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][30];
 
 	    	for ($x = 1; $x <= 3; $x++) {
-	    		$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["aigp".$x.config('constants.'.$aig_reg).'adultnsc'][0];
-		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["aigp".$x.config('constants.'.$aig_reg).'adultnsc'][4];
-		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["aigp".$x.config('constants.'.$aig_reg).'adultnsc'][9];
-		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["aigp".$x.config('constants.'.$aig_reg).'adultnsc'][9];
+	    		$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['premiums'] = $allpremiums['columns']["aigp".$x.config('constants.'.$aig_reg).'adultnsc'][$travelling_days_index];
+	    		$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['death'] = $this->array_find("aigp".$x.config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 0);
+		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['disability'] = $this->array_find("aigp".$x.config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 4);
+		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['medical'] = $this->array_find("aigp".$x.config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 9);
+		    	$available_plans["aigp".$x.config('constants.'.$aig_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("aigp".$x.config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 9);
 			}
 
-			for ($x = 1; $x <= 5; $x++) {
-	    		$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["axap".$x.config('constants.'.$axa_reg).'adultnsc'][0];
-		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["axap".$x.config('constants.'.$axa_reg).'adultnsc'][4];
-		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["axap".$x.config('constants.'.$axa_reg).'adultnsc'][9];
-		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["axap".$x.config('constants.'.$axa_reg).'adultnsc'][9];
+			for ($x = 1; $x <= 4; $x++) {
+				$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['premiums'] = $allpremiums['columns']["axap".$x.config('constants.'.$axa_reg).'adultnsc'][$travelling_days_index];
+	    		$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['death'] = $this->array_find("axap".$x.config('constants.'.$axa_reg).'adultnsc', $allbenefits['columns'], 0);
+		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['disability'] = $this->array_find("axap".$x.config('constants.'.$axa_reg).'adultnsc', $allbenefits['columns'], 4);
+		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['medical'] = $this->array_find("axap".$x.config('constants.'.$axa_reg).'adultnsc', $allbenefits['columns'], 9);
+		    	$available_plans["axap".$x.config('constants.'.$axa_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("axap".$x.config('constants.'.$axa_reg).'adultnsc', $allbenefits['columns'], 4);
 			}
 
 			for ($x = 1; $x <= 2; $x++) {
-	    		$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["bsp".$x.config('constants.'.$sompo_reg).'adultnsc'][0];
-		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["bsp".$x.config('constants.'.$sompo_reg).'adultnsc'][4];
-		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["bsp".$x.config('constants.'.$sompo_reg).'adultnsc'][9];
-		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["bsp".$x.config('constants.'.$sompo_reg).'adultnsc'][9];
+				$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['premiums'] = $allpremiums['columns']["bsp".$x.config('constants.'.$sompo_reg).'adultnsc'][$travelling_days_index];
+	    		$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['death'] = $this->array_find("bsp".$x.config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 0);
+		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['disability'] = $this->array_find("bsp".$x.config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 4);
+		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['medical'] = $this->array_find("bsp".$x.config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 9);
+		    	$available_plans["bsp".$x.config('constants.'.$sompo_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("bsp".$x.config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 30);
 			} 
 
-			for ($x = 1; $x <= 4; $x++) {
-	    		$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["kurniap".$x.config('constants.'.$amg_reg).'adultnsc'][0];
-		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["kurniap".$x.config('constants.'.$amg_reg).'adultnsc'][4];
-		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["kurniap".$x.config('constants.'.$amg_reg).'adultnsc'][9];
-		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["kurniap".$x.config('constants.'.$amg_reg).'adultnsc'][9];
+			for ($x = 1; $x <= 2; $x++) {
+				$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['premiums'] = $allpremiums['columns']["kurniap".$x.config('constants.'.$amg_reg).'adultnsc'][$travelling_days_index];
+	    		$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['death'] = $this->array_find("kurniap".$x.config('constants.'.$amg_reg).'adultnsc', $allbenefits['columns'], 0);
+		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['disability'] = $this->array_find("kurniap".$x.config('constants.'.$amg_reg).'adultnsc', $allbenefits['columns'], 4);
+		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['medical'] = $this->array_find("kurniap".$x.config('constants.'.$amg_reg).'adultnsc', $allbenefits['columns'], 9);
+		    	$available_plans["kurniap".$x.config('constants.'.$amg_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("kurniap".$x.config('constants.'.$amg_reg).'adultnsc', $allbenefits['columns'], 30);
 			} 
+
+			// $available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['premiums'] = $allpremiums['columns']["aigx".config('constants.'.$aig_reg).'adultnsc'][$travelling_days_index];
+	  //   	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['death'] = $this->array_find("aigx".config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 0);
+	  //   	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['disability'] = $this->array_find("aigx".config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 4);
+	  //   	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['medical'] = $this->array_find("aigx".config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 9);
+	  //   	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("aigx".config('constants.'.$aig_reg).'adultnsc', $allbenefits['columns'], 30);
+
+	    	$available_plans["tunex".config('constants.'.$tune_reg).'adultnsc']['premiums'] = $allpremiums['columns']["tunex".config('constants.'.$tune_reg).'adultnsc'][$travelling_days_index];
+			$available_plans["tunex".config('constants.'.$tune_reg).'adultnsc']['benefits']['death'] = $this->array_find("tunex".config('constants.'.$tune_reg).'adultnsc', $allbenefits['columns'], 0);
+			$available_plans["tunex".config('constants.'.$tune_reg).'adultnsc']['benefits']['disability'] = $this->array_find("tunex".config('constants.'.$tune_reg).'adultnsc', $allbenefits['columns'], 4);
+			$available_plans["tunex".config('constants.'.$tune_reg).'adultnsc']['benefits']['medical'] = $this->array_find("tunex".config('constants.'.$tune_reg).'adultnsc', $allbenefits['columns'], 9);
+			$available_plans["tunex".config('constants.'.$tune_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("tunex".config('constants.'.$tune_reg).'adultnsc', $allbenefits['columns'], 30);
+
+			// $available_plans["bsx".config('constants.'.$sompo_reg).'adultnsc']['premiums'] = $allpremiums['columns']["bsx".config('constants.'.$sompo_reg).'adultnsc'][$travelling_days_index];
+			// $available_plans["bsx".config('constants.'.$sompo_reg).'adultnsc']['benefits']['death'] = $this->array_find("bsx".config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 0);
+			// $available_plans["bsx".config('constants.'.$sompo_reg).'adultnsc']['benefits']['disability'] = $this->array_find("bsx".config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 4);
+			// $available_plans["bsx".config('constants.'.$sompo_reg).'adultnsc']['benefits']['medical'] = $this->array_find("bsx".config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 9);
+			// $available_plans["bsx".config('constants.'.$sompo_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("bsx".config('constants.'.$sompo_reg).'adultnsc', $allbenefits['columns'], 30);
+
+			$available_plans["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc']['premiums'] = $allpremiums['columns']["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc'][$travelling_days_index];
+			$available_plans["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc']['benefits']['death'] = $this->array_find("tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc', $allbenefits['columns'], 0);
+			$available_plans["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc']['benefits']['disability'] = $this->array_find("tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc', $allbenefits['columns'], 4);
+			$available_plans["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc']['benefits']['medical'] = $this->array_find("tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc', $allbenefits['columns'], 9);
+			$available_plans["tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc']['benefits']['tripcancel'] = $this->array_find("tkfikhlasx".config('constants.'.$tkf_reg).'adultnsc', $allbenefits['columns'], 30);
 
 			dd($available_plans);
-
-
-	    	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['death'] = $allbenefits['columns']["aigx".config('constants.'.$aig_reg).'adultnsc'][0];
-	    	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["aigx".config('constants.'.$aig_reg).'adultnsc'][4];
-	    	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["aigx".config('constants.'.$aig_reg).'adultnsc'][9];
-	    	$available_plans["aigx".config('constants.'.$aig_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["aigx".config('constants.'.$aig_reg).'adultnsc'][9];
-
-	    	
-	    	
-
-			$available_plans[] = "tunex".config('constants.'.$tune_reg).'adultnsc';
-			$available_plans[] = "bsx".config('constants.'.$sompo_reg).'adultnsc';
-			
     	}
 
     	return view('public.plans');
     }
+
+    public function array_find($needle, array $haystack, $index)
+	{
+	    foreach ($haystack as $key => $value) {
+	        if (false !== stripos($key, $needle)) {
+	            return $value[$index];
+	        }
+	    }
+	    return false;
+	}
 }
