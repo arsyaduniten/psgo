@@ -13,6 +13,22 @@
 
 @section('content')
 @include('layouts.nav')
+<div class="fixed z-50 hidden" id="loader" style="top:50%; bottom:50%; left: 50%; right: 50%">
+	<svg width="51px" height="50px" viewBox="0 0 51 50">
+	    <rect y="0" width="13" height="50" fill="#1fa2ff">
+	        <animate attributeName="height" values="50;10;50" begin="0s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	    <rect x="19" y="0" width="13" height="50" fill="#12d8fa">
+	        <animate attributeName="height" values="50;10;50" begin="0.2s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0.2s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	    <rect x="38" y="0" width="13" height="50" fill="#06ffcb">
+	        <animate attributeName="height" values="50;10;50" begin="0.4s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0.4s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	</svg>
+</div>
 <p class="font-bold this-black text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found</p>
 <form class="container mx-auto flex justify-between flex-wrap" method="POST" action="{{ route('traveller-info') }}" id="planForm">
 	@csrf
@@ -64,9 +80,15 @@ $(document).ready(function(){
 	$(".selectPlan").click(function(){
 		var plan = this.getAttribute('data-key');
 		$("#plan").val(plan);
+		blurAll();
 		$("#planForm").submit();
 	});
 });
+
+function blurAll(){
+	$( "*" ).not( "#loader , body, head, html, svg, rect").addClass('blur');
+	$("#loader").removeClass('hidden');
+}
 </script>
 @endsection
 

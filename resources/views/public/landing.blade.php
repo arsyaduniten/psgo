@@ -21,12 +21,28 @@
 
 @section('content')
 @include('layouts.nav')
+<div class="fixed z-50 hidden" id="loader" style="top:50%; bottom:50%; left: 50%; right: 50%">
+	<svg width="51px" height="50px" viewBox="0 0 51 50">
+	    <rect y="0" width="13" height="50" fill="#1fa2ff">
+	        <animate attributeName="height" values="50;10;50" begin="0s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	    <rect x="19" y="0" width="13" height="50" fill="#12d8fa">
+	        <animate attributeName="height" values="50;10;50" begin="0.2s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0.2s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	    <rect x="38" y="0" width="13" height="50" fill="#06ffcb">
+	        <animate attributeName="height" values="50;10;50" begin="0.4s" dur="1s" repeatCount="indefinite" />
+	        <animate attributeName="y" values="0;20;0" begin="0.4s" dur="1s" repeatCount="indefinite" />
+	    </rect>
+	</svg>
+</div>
 <div class="py-6 flex flex-col justify-center">
 	<img class="mx-auto hidden md:block" src="/images/travel-ai.png">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
 	<div class="flex justify-center">
-		<form class="flex flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
+		<form autocomplete="off" class="flex flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
 			@csrf
 			<div class="flex">
 				<div>
@@ -92,7 +108,8 @@ $(document).ready(function(){
 	$('input[name=destination]').focus();
 	$('#submit-btn').on('click', function(e){
 		e.preventDefault();
-		$("input[name=traveller]").removeAttr("disabled");;
+		$("input[name=traveller]").removeAttr("disabled");
+		blurAll();
 		$("#quote_form").submit();
 	});
 	$('#minus-btn').on('click', function(){
@@ -107,6 +124,12 @@ $(document).ready(function(){
 		$("input[name=traveller]").val(traveller);
 	});
 });
+
+function blurAll(){
+	$( "*" ).not( "#loader , body, head, html, svg, rect").addClass('blur');
+	$("#loader").removeClass('hidden');
+}
+
 
 function initMap(){
 	var input = document.getElementById('destination');

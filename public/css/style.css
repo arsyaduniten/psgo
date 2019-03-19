@@ -5,6 +5,14 @@ body{
     text-rendering: optimizeLegibility;
 }
 
+.blur {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+
 select {
    -webkit-appearance: none; 
    -moz-appearance: none;

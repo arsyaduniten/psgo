@@ -26,63 +26,68 @@
 	<div class="flex">
 		<div class="nav-bg text-center md:w-1/6 flex flex-col py-4">
 			@foreach(range(1,$pax) as $p)
-			<button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" data-key="" id="traveller-btn-{{ $p }}">Traveller {{ $p }}</button>
+			<button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" traveller-id="traveller-{{ $p }}" id="traveller-btn-{{ $p }}">Traveller {{ $p }}</button>
 			@endforeach
 			<!-- <button class="blue-btn pb-4 py-2 my-2 mt-4 mx-10 nav-btn" data-id="death-disability">Traveller 2</button> -->
 		</div>
-		<form class="form flex flex-col" id="traveller-2">
-			<div class="flex">
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
-					<input type="text" name="name" class="px-6 p-2 border border-grey-dark">
+		<form class="form flex flex-col" id="mainForm">
+			@foreach(range(1,$pax) as $p)
+			<div id="traveller-{{ $p }}" class="hidden traveller-form">
+				<div class="flex">
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
+						<input type="text" name="name[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+					<div class="flex flex-col p-4">
+						<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
+						<div class="flex border border-grey-dark">
+							<select name="id_type[]" class="p-2 border-r border-grey-dark rounded-none">
+							  <option value="ic">IC</option>
+							  <option value="passport">Passport</option>
+							</select>
+							<input type="text" name="id_number[]" class="px-6 p-2">
+						</div>
+					</div>
 				</div>
-				<div class="flex flex-col p-4">
-					<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
-					<div class="flex border border-grey-dark">
-						<select name="id_type" class="p-2 border-r border-grey-dark rounded-none">
-						  <option value="ic">IC</option>
-						  <option value="passport">Passport</option>
+				<div class="flex -my-6">
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Email<span class="text-red p-2">*</span></label>
+						<input type="text" name="email[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
+						<div class="flex border border-grey-dark">
+							<button class="px-6 p-2 border-r border-grey-dark" disabled>+60</button>
+							<input type="text" name="phone_number[]" class="px-6 p-2">
+						</div>
+					</div>
+				</div>
+				<div class="flex">
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Nationality<span class="text-red p-2">*</span></label>
+						<select class="px-6 p-2 border border-grey-dark rounded-none bg-white" name="nationality[]">
+							<option value="my">Malaysia</option>
+							<option value="sg">Singapore</option>
 						</select>
-						<input type="text" name="id_number" class="px-6 p-2">
+					</div>
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
+						<input type="date" name="dob[]" class="px-6 p-1 border border-grey-dark">
+					</div>
+					<div class="flex-1 flex flex-col p-4">
+						<label class="py-2">Gender<span class="text-red p-2">*</span></label>
+						<input type="hidden" name="gender[]">
+						<div>
+							<button class="p-2 rounded-l border border-grey-dark">Male</button><button class="p-2 rounded-r border border-grey-dark border-l-none">Female</button>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="flex -my-6">
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Email<span class="text-red p-2">*</span></label>
-					<input type="text" name="email" class="px-6 p-2 border border-grey-dark">
-				</div>
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
-					<div class="flex border border-grey-dark">
-						<button class="px-6 p-2 border-r border-grey-dark" disabled>+60</button>
-						<input type="text" name="phone_number" class="px-6 p-2">
-					</div>
-				</div>
-			</div>
-			<div class="flex">
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Nationality<span class="text-red p-2">*</span></label>
-					<select class="px-6 p-2 border border-grey-dark rounded-none bg-white" name="nationality">
-						<option value="my">Malaysia</option>
-						<option value="sg">Singapore</option>
-					</select>
-				</div>
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
-					<input type="date" name="dob" class="px-6 p-1 border border-grey-dark">
-				</div>
-				<div class="flex-1 flex flex-col p-4">
-					<label class="py-2">Gender<span class="text-red p-2">*</span></label>
-					<div>
-						<button name="male" class="p-2 rounded-l border border-grey-dark">Male</button><button name="female" class="p-2 rounded-r border border-grey-dark border-l-none">Female</button>
-					</div>
-				</div>
-			</div>
+			@endforeach
 		</form>
-		<div class="flex-1 pricing mx-12 my-2 border-2 border-blue rounded bg-inherit p-4">
+		<div class="flex-no-grow pricing mx-12 my-2 border-2 border-blue rounded bg-inherit p-4">
 			<p class="text-blue text-sm font-bold">Plan Selected</p><br>
-			<p class="flex this-black text-3xl font-bold -mt-5 items-center justify-between"><span>Allianz Travel Care</span><img src="/images/tick.png" class=""></p>
+			<p class="flex this-black text-3xl font-bold -mt-5 items-center"><span class="pr-2">{{ $plan['name'] }}</span><img src="/images/tick.png" class=""></p>
 			<div class="flex pt-16 justify-between text-left">
 				<p class="px-4">Death & disability <br>protection</p>
 				<p class="px-4 font-bold text-blue">Lump Sum<br> RM{{ number_format($plan['benefits']['death']) }}</p>
@@ -110,7 +115,13 @@
 @section('script')
 <script>
 $(document).ready(function(){
+	$("#traveller-1").removeClass("hidden");
+	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
+		$(".traveller-form").each(function(){
+			$(this).addClass('hidden');
+		});
+		$("#"+$(this).attr('traveller-id')).removeClass('hidden');
 		$(".qa-section").each(function(){
 			$(this).hide();
 		});
