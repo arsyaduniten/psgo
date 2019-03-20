@@ -30,3 +30,4 @@ Route::get('/traveller-info', function () {
 });
 
 Route::post('/traveller-info', 'TravellerController@create')->name('traveller-info');
+Route::post('/traveller-create', 'TravellerController@store')->name('traveller-create');

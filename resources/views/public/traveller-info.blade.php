@@ -30,7 +30,7 @@
 			@endforeach
 			<!-- <button class="blue-btn pb-4 py-2 my-2 mt-4 mx-10 nav-btn" data-id="death-disability">Traveller 2</button> -->
 		</div>
-		<form class="form flex flex-col" id="mainForm">
+		<form method="POST" action="route('traveller-create')" class="form flex flex-col" id="mainForm">
 			@foreach(range(1,$pax) as $p)
 			<div id="traveller-{{ $p }}" class="hidden traveller-form">
 				<div class="flex">
@@ -82,10 +82,31 @@
 						</div>
 					</div>
 				</div>
+				<div class="flex -my-6">
+					<div class="flex flex-col p-4">
+						<label class="py-2">Address 1<span class="text-red p-2">*</span></label>
+						<input type="text" name="email[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+					<div class="flex flex-col p-4">
+						<label class="py-2">Address 2</label>
+						<input type="text" name="email[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+				</div>
+				<div class="flex">
+					<div class="flex flex-col p-4">
+						<label class="py-2">Postcode<span class="text-red p-2">*</span></label>
+						<input type="text" name="postcode[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+					<div class="flex flex-col p-4">
+						<label class="py-2">City<span class="text-red p-2">*</span></label>
+						<input type="text" name="city[]" class="px-6 p-2 border border-grey-dark">
+					</div>
+				</div>
+				{{-- <button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" traveller-id="traveller-{{ $p }}" id="next-btn-{{ $p }}">Next: Traveller {{ $p }}</button> --}}
 			</div>
 			@endforeach
 		</form>
-		<div class="flex-no-grow pricing mx-12 my-2 border-2 border-blue rounded bg-inherit p-4">
+		<div class="flex-no-grow pricing mx-12 my-6 border-2 border-blue rounded bg-inherit p-4">
 			<p class="text-blue text-sm font-bold">Plan Selected</p><br>
 			<p class="flex this-black text-3xl font-bold -mt-5 items-center"><span class="pr-2">{{ $plan['name'] }}</span><img src="/images/tick.png" class=""></p>
 			<div class="flex pt-16 justify-between text-left">

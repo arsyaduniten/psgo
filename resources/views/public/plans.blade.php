@@ -36,6 +36,11 @@
 	<input type="hidden" name="travelling_days" value="{{ $travelling_days }}">
 	<input type="hidden" name="destination" value="{{ $destination }}">
 	<input type="hidden" name="plan" id="plan">
+	<input type="hidden" name="name">
+	<input type="hidden" name="premiums">
+	<input type="hidden" name="death">
+	<input type="hidden" name="medical">
+	<input type="hidden" name="tripcancel">
 	@foreach($available_plans as $key => $plan)
 	<div class="bg-white rounded shadow-1 my-6">
 		<div class="mx-6 my-6 text-center">
@@ -77,9 +82,15 @@ $(document).ready(function(){
 	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	    }
 	});
+	var plans = <?php echo json_encode($available_plans) ?>;
 	$(".selectPlan").click(function(){
 		var plan = this.getAttribute('data-key');
 		$("#plan").val(plan);
+		$("input[name=name]").val(plans[plan]['name']);
+		$("input[name=premiums]").val(plans[plan]['premiums']);
+		$("input[name=death]").val(plans[plan]['benefits']['death']);
+		$("input[name=medical]").val(plans[plan]['benefits']['medical']);
+		$("input[name=tripcancel]").val(plans[plan]['benefits']['tripcancel']);
 		blurAll();
 		$("#planForm").submit();
 	});
