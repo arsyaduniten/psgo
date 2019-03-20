@@ -63,6 +63,10 @@ textarea:focus, input:focus, button:focus{
 	color:#47495A;
 }
 
+.this-white{
+	color:#FBFBFB;
+}
+
 .this-grey{
 	color:#9B9B9B;
 }

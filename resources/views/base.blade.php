@@ -13,7 +13,7 @@
 	<style type="text/css">
 		
 	</style>
-	<link rel="stylesheet" href="/css/style.css?v=1.12">
+	<link rel="stylesheet" href="/css/style.css?v=1.13">
 	@yield('head')
 </head>
 <body>

@@ -50,6 +50,22 @@ class TravellerController extends Controller
     public function store(Request $request)
     {
         //
+        $count = sizeof($request->get('name'));
+
+        foreach(range(0,$count) as $c)
+            $t = new Traveller();
+            $t->name = $request->get('name')[$c];
+            $t->email = $request->get('email')[$c];
+            $t->id_type = $request->get('id_type')[$c];
+            $t->id_number = $request->get('id_number')[$c];
+            $t->phone_number = $request->get('phone_number')[$c];
+            $t->nationality = $request->get('nationality')[$c];
+            $t->dob = $request->get('dob')[$c];
+            $t->gender = $request->get('gender')[$c];
+            $t->address_1 = $request->get('address_1')[$c];
+            $t->address_2 = $request->get('address_2')[$c];
+        }
+        return back();        
     }
 
     /**
