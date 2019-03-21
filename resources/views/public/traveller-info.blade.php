@@ -40,7 +40,7 @@
 			<p class="p-6 this-black font-bold text-xl">{{ $plan['name'] }}</p>
 		</div>
 	</div>
-	<div class="flex">
+	<div class="flex bg-white">
 		<div class="header-bg text-center md:w-1/6 flex flex-col py-4" id="nav-tabs">
 			@foreach(range(1,$pax) as $p)
 			<button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" traveller-id="traveller-{{ $p }}" id="traveller-btn-{{ $p }}"><i class="text-blue-lighter fas fa-user"></i><span class="px-4">{{ $p }}</span></button>
@@ -48,7 +48,7 @@
 			<!-- <button class="bg-transparent text-blue-darker hover:text-white pb-4 py-2 mt-4 mx-10 info-btn" traveller-id="traveller-{{ $p }}" id="add-new"><i class="fas fa-plus pt-1"></i></span></button> -->
 			<!-- <button class="blue-btn pb-4 py-2 my-2 mt-4 mx-10 nav-btn" data-id="death-disability">Traveller 2</button> -->
 		</div>
-		<form method="POST" action="{{ route('traveller-create') }}" class="form flex flex-col" id="mainForm">
+		<form method="POST" action="{{ route('traveller-create') }}" class="form flex flex-col bg-white" id="mainForm">
 			@csrf
 			@foreach(range(1,$pax) as $p)
 			<div id="traveller-{{ $p }}" class="hidden traveller-form m-4">
@@ -106,8 +106,8 @@
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Gender<span class="text-red p-2">*</span></label>
 						<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="gender[]">
-							<option value="m">Male</option>
-							<option value="f">Female</option>
+							<option value="0">Male</option>
+							<option value="1">Female</option>
 						</select>
 					</div>
 				</div>
@@ -133,6 +133,7 @@
 						<input type="text" name="city[]" class="px-2 p-2 border border-grey-dark">
 						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
 					</div>
+					<input type="hidden" name="key" value="{{ $plan['key'] }}">
 					<div class="flex flex-col p-4">
 						<label class="py-2">State<span class="text-red p-2">*</span></label>
 						<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="state[]">
@@ -155,7 +156,7 @@
 			</div>
 			@endforeach
 		</form>
-		<div class="w-full pricing mx-12 my-6 border-2 border-blue rounded bg-inherit p-4">
+		<div class="w-full pricing mx-12 my-6 border-2 border-blue bg-white rounded bg-inherit p-4">
 			<p class="text-blue text-sm font-bold">Plan Selected</p><br>
 			<p class="flex this-black text-3xl font-bold -mt-5 items-center"><span class="pr-2">{{ $plan['name'] }}</span><img src="/images/tick.png" class=""></p>
 			<div class="flex pt-10 justify-between text-left">

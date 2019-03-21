@@ -28,6 +28,7 @@ class TravellerController extends Controller
         // $available_plans = $this->get_plans($request->get('travelling_days'), $request->get('destination'));
         // $plan = $available_plans[$request->get('plan')];
         $plan = [
+            "key" => $request->get('plan'),
             "name" => $request->get('name'),
             "premiums" => $request->get('premiums'),
             "benefits" => [
@@ -50,9 +51,8 @@ class TravellerController extends Controller
     public function store(Request $request)
     {
         //
-        $count = sizeof($request->get('name'));
-
-        foreach(range(0,$count) as $c)
+        $count = sizeof($request->get('name')) - 1;
+        foreach(range(0,$count) as $c){
             $t = new Traveller();
             $t->name = $request->get('name')[$c];
             $t->email = $request->get('email')[$c];
@@ -64,8 +64,14 @@ class TravellerController extends Controller
             $t->gender = $request->get('gender')[$c];
             $t->address_1 = $request->get('address_1')[$c];
             $t->address_2 = $request->get('address_2')[$c];
+            $t->postcode = $request->get('postcode')[$c];
+            $t->city = $request->get('city')[$c];
+            $t->state = $request->get('state')[$c];
+            $t->refno = str_random(8);
+            $t->plan = $request->get('key');
+            $t->save();
         }
-        return back();        
+        return "success";        
     }
 
     /**
