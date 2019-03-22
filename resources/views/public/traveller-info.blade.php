@@ -119,7 +119,7 @@
 					</div>
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 2</label>
-						<input type="text" data-id="address2" name="address_2[]" class="px-2 p-2 border border-grey-dark">
+						<input type="text" name="address_2[]" id="address_2" class="px-2 p-2 border border-grey-dark">
 					</div>
 				</div>
 				<div class="flex -my-6">
@@ -200,14 +200,12 @@ $(document).ready(function(){
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
 		var exit = false;
-		$(':input').each(function(){
+		$(':input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
-				if($(this).attr('data-id') == "address2"){
-					continue;
-				} else { 
-					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-					exit = true;
-				}
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				exit = true;
+			} else {
+				exit = false;
 			}
 		});
 		if(exit){
@@ -232,14 +230,12 @@ $(document).ready(function(){
 
 	$(".next-btn").click(function(e){
 		var exit = false;
-		$(':input').each(function(){
+		$(':input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
-				if($(this).attr('data-id') == "address2"){
-					continue;
-				} else { 
-					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-					exit = true;
-				}
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				exit = true;
+			} else {
+				exit = false;
 			}
 		});
 		if(exit){
@@ -260,16 +256,16 @@ $(document).ready(function(){
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
 		var exit = false;
-		$(':input').each(function(){
+		$(':input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
-				if($(this).attr('data-id') == "address2"){
-					continue;
-				} else { 
-					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-					exit = true;
-				}
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				console.log($(this));
+				exit = true;
+			} else {
+				exit = false;
 			}
 		});
+		console.log(exit);
 		if(exit){
 			return;
 		}
