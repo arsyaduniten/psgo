@@ -56,7 +56,7 @@
 				<div class="flex">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
-						<input type="text" name="name[]" class="px-2 p-2 border border-grey-dark">
+						<input type="text" name="name[]" data-id="name" class="px-2 p-2 border border-grey-dark">
 						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
 					</div>
 					<div class="flex flex-col p-4">
@@ -69,24 +69,24 @@
 								</select>
 								<i class="fas fa-chevron-down" id="id-type-arrow"></i>
 							</div>
-							<input type="text" name="id_number[]" class="px-2 p-2">
-							<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+							<input type="text" name="id_number[]" data-id="id" class="px-2 p-2">
 						</div>
+						<span class="text-sm text-red m-1 hidden" id="id-label">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex -my-6">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Email<span class="text-red p-2">*</span></label>
-						<input type="text" name="email[]" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="text" name="email[]" data-id="email" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="email-label">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
 						<div class="flex border border-grey-dark">
 							<button class="px-2 p-2 border-r border-grey-dark" disabled>+60</button>
-							<input type="text" name="phone_number[]" class="px-2 p-2">
-							<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+							<input type="text" name="phone_number[]" data-id="phone" class="px-2 p-2">
 						</div>
+						<span class="text-sm text-red m-1 hidden" id="phone-label">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex -my-6">
@@ -96,12 +96,12 @@
 							<option value="my">Malaysia</option>
 							<option value="sg">Singapore</option>
 						</select>
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="nationality-label">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
-						<input type="date" name="dob[]" class="px-2 p-1 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="date" name="dob[]" data-id="dob" class="px-2 p-1 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="dob-label">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Gender<span class="text-red p-2">*</span></label>
@@ -114,8 +114,8 @@
 				<div class="flex -my-6">
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 1<span class="text-red p-2">*</span></label>
-						<input type="text" name="address_1[]" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="text" name="address_1[]" data-id="address" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="address-label">* This field is required</span>
 					</div>
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 2</label>
@@ -125,13 +125,13 @@
 				<div class="flex -my-6">
 					<div class="flex flex-col p-4">
 						<label class="py-2">Postcode<span class="text-red p-2">*</span></label>
-						<input type="text" name="postcode[]" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="text" name="postcode[]" data-id="postcode" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="postcode-label">* This field is required</span>
 					</div>
 					<div class="flex flex-col p-4">
 						<label class="py-2">City<span class="text-red p-2">*</span></label>
-						<input type="text" name="city[]" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="text" name="city[]" data-id="city" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="city-label">* This field is required</span>
 					</div>
 					<input type="hidden" name="key" value="{{ $plan['key'] }}">
 					<div class="flex flex-col p-4">
@@ -196,118 +196,19 @@ function blurAll(){
 	$("#loader").removeClass('hidden');
 }
 $(document).ready(function(){
-	// var pax = parseInt("{{ $pax }}");
-	// $("#add-new").click(function(){
-	// 	$(`<button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" traveller-id="traveller-`
-	// 		+(pax+1)+`" 
-	// 		id="traveller-btn-`+(pax+1)+`">
-	// 		<i class="text-blue-lighter fas fa-user"></i><span class="px-4">`+(pax+1)+`</span></button>`)
-	// 	.insertBefore('#add-new');
-	// 	pax++;
-
-	// 	$("#mainForm").append(`<div id="traveller-`+(pax)+`" class="hidden traveller-form m-4 newly-add">
-	// 			<p class="text-xl this-black font-bold px-4 pt-2">Traveller `+(pax)+` Information</p>
-	// 			<div class="flex">
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
-	// 					<input type="text" name="name[]" class="px-2 p-2 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex flex-col p-4">
-	// 					<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
-	// 					<div class="flex border border-grey-dark">
-	// 						<div class="flex border-r border-grey-dark rounded-none p-2">
-	// 							<select name="id_type[]" class="" id="id-type-select">
-	// 							  <option value="ic">IC</option>
-	// 							  <option value="passport">Passport</option>
-	// 							</select>
-	// 							<i class="fas fa-chevron-down" id="id-type-arrow"></i>
-	// 						</div>
-	// 						<input type="text" name="id_number[]" class="px-2 p-2">
-	// 						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	// 			<div class="flex -my-6">
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Email<span class="text-red p-2">*</span></label>
-	// 					<input type="text" name="email[]" class="px-2 p-2 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
-	// 					<div class="flex border border-grey-dark">
-	// 						<button class="px-2 p-2 border-r border-grey-dark" disabled>+60</button>
-	// 						<input type="text" name="phone_number[]" class="px-2 p-2">
-	// 						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	// 			<div class="flex -my-6">
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Nationality<span class="text-red p-2">*</span></label>
-	// 					<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="nationality[]">
-	// 						<option value="my">Malaysia</option>
-	// 						<option value="sg">Singapore</option>
-	// 					</select>
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
-	// 					<input type="date" name="dob[]" class="px-2 p-1 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex-1 flex flex-col p-4">
-	// 					<label class="py-2">Gender<span class="text-red p-2">*</span></label>
-	// 					<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="gender[]">
-	// 						<option value="m">Male</option>
-	// 						<option value="f">Female</option>
-	// 					</select>
-	// 				</div>
-	// 			</div>
-	// 			<div class="flex -my-6">
-	// 				<div class="flex-auto flex flex-col p-4">
-	// 					<label class="py-2">Address 1<span class="text-red p-2">*</span></label>
-	// 					<input type="text" name="address_1[]" class="px-2 p-2 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex-auto flex flex-col p-4">
-	// 					<label class="py-2">Address 2</label>
-	// 					<input type="text" name="address_2[]" class="px-2 p-2 border border-grey-dark">
-	// 				</div>
-	// 			</div>
-	// 			<div class="flex -my-6">
-	// 				<div class="flex flex-col p-4">
-	// 					<label class="py-2">Postcode<span class="text-red p-2">*</span></label>
-	// 					<input type="text" name="postcode[]" class="px-2 p-2 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex flex-col p-4">
-	// 					<label class="py-2">City<span class="text-red p-2">*</span></label>
-	// 					<input type="text" name="city[]" class="px-2 p-2 border border-grey-dark">
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 				<div class="flex flex-col p-4">
-	// 					<label class="py-2">State<span class="text-red p-2">*</span></label>
-	// 					<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="state[]">
-	// 						<option value="wp">Wilayah Persekutuan</option>
-	// 						<option value="selangor">Selangor</option>
-	// 					</select>
-	// 					<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
-	// 				</div>
-	// 			</div>
-	// 			<div class="flex my-6 mx-2" id="action-btn">
-	// 				<a class="bg-transparent px-4 cursor-pointer pb-5 pt-4 info-btn this-black next-btn mx-2" traveller-id="traveller-`+(pax-1)+`" btn-id="`+(pax-1)+`">Previous: Traveller `+(pax-1)+`</a>
-	// 			</div>
-	// 		</div>`);
-	// });
-	// $("#id-type-select").change(function(){
-	// 	console.log("select clicked");
-	// });
 	$("#traveller-1").removeClass("hidden");
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
-		console.log("clicked");
+		var exit;
+		$(':input').each(function(){
+			if($(this).val() == ""){
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				exit = true;
+			}
+		});
+		if(exit){
+			return;
+		}
 		$(".traveller-form").each(function(){
 			$(this).addClass('hidden');
 		});
@@ -326,6 +227,16 @@ $(document).ready(function(){
 	});
 
 	$(".next-btn").click(function(e){
+		var exit;
+		$(':input').each(function(){
+			if($(this).val() == ""){
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				exit = true;
+			}
+		});
+		if(exit){
+			return;
+		}
 		$(".traveller-form").each(function(){
 			$(this).addClass('hidden');
 		});
