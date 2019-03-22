@@ -13,6 +13,12 @@ body{
 	filter: blur(3px);
 }
 
+.cc-input{
+	border: 1px solid #0C80FD;	
+	border-radius: 2px;	
+	background-color: #F8FCFF;
+}
+
 select {
    -webkit-appearance: none; 
    -moz-appearance: none;
