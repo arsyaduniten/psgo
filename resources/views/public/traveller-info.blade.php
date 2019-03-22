@@ -199,7 +199,7 @@ $(document).ready(function(){
 	$("#traveller-1").removeClass("hidden");
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
-		var exit;
+		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
@@ -227,7 +227,7 @@ $(document).ready(function(){
 	});
 
 	$(".next-btn").click(function(e){
-		var exit;
+		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
@@ -251,7 +251,7 @@ $(document).ready(function(){
 
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
-		var exit;
+		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
