@@ -196,16 +196,15 @@ function blurAll(){
 	$("#loader").removeClass('hidden');
 }
 $(document).ready(function(){
+	console.log($("input"));
 	$("#traveller-1").removeClass("hidden");
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
 		var exit = false;
-		$(':input:not(#address_2)').each(function(){
+		$('input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
 				exit = true;
-			} else {
-				exit = false;
 			}
 		});
 		if(exit){
@@ -230,12 +229,10 @@ $(document).ready(function(){
 
 	$(".next-btn").click(function(e){
 		var exit = false;
-		$(':input:not(#address_2)').each(function(){
+		$('input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
 				exit = true;
-			} else {
-				exit = false;
 			}
 		});
 		if(exit){
@@ -256,16 +253,13 @@ $(document).ready(function(){
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
 		var exit = false;
-		$(':input:not(#address_2)').each(function(){
+		$('input:not(#address_2)').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
 				console.log($(this));
 				exit = true;
-			} else {
-				exit = false;
 			}
 		});
-		console.log(exit);
 		if(exit){
 			return;
 		}
