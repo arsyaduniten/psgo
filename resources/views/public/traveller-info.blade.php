@@ -251,6 +251,16 @@ $(document).ready(function(){
 
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
+		var exit;
+		$(':input').each(function(){
+			if($(this).val() == ""){
+				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				exit = true;
+			}
+		});
+		if(exit){
+			return;
+		}
 		blurAll();
 		$("#mainForm").submit();
 	});
