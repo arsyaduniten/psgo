@@ -63,7 +63,7 @@
 						<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
 						<div class="flex border border-grey-dark">
 							<div class="flex border-r border-grey-dark rounded-none p-2">
-								<select name="id_type[]" class="" id="id-type-select">
+								<select name="id_type[]" class="bg-transparent" id="id-type-select">
 								  <option value="ic">IC</option>
 								  <option value="passport">Passport</option>
 								</select>
@@ -155,6 +155,12 @@
 				</div>
 			</div>
 			@endforeach
+			<input type="hidden" name="pax" value="{{ $pax }}">
+			<input type="hidden" name="travelling_days" value="{{ $travelling_days }}">
+			<input type="hidden" name="destination" value="{{ $destination }}">
+			<input type="hidden" name="plan" value="{{ $plan['key'] }}">
+			<input type="hidden" name="name" value="{{ $plan['name'] }}">
+			<input type="hidden" name="premiums" value="{{ $plan['premiums'] }}">
 		</form>
 		<div class="w-full pricing mx-12 my-6 border-2 border-blue bg-white rounded bg-inherit p-4">
 			<p class="text-blue text-sm font-bold">Plan Selected</p><br>

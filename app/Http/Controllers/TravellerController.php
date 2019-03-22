@@ -39,7 +39,8 @@ class TravellerController extends Controller
         ];
         $travelling_days = $request->get('travelling_days');
         $pax = $request->get('pax');
-        return view('public.traveller-info', compact('plan', 'pax', 'travelling_days'));
+        $destination = $request->get('destination');
+        return view('public.traveller-info', compact('plan', 'pax', 'travelling_days', 'destination'));
     }
 
     /**
@@ -51,7 +52,23 @@ class TravellerController extends Controller
     public function store(Request $request)
     {
         //
-        $count = sizeof($request->get('name')) - 1;
+        $count = $request->get('pax') - 1;
+        $refno = str_random(8);
+        $unique_ref = true;
+        $refnos = Traveller::all()->pluck('refno')->toArray();
+        if(in_array($refno, $refnos)){
+            $refno = str_random(8);
+            $unique_ref = false;
+        }
+
+        while(!$unique_ref){
+            if(in_array($refno, $refnos)){
+                $refno = str_random(8);
+            } else{
+                $unique_ref = true ;
+            }
+        }
+
         foreach(range(0,$count) as $c){
             $t = new Traveller();
             $t->name = $request->get('name')[$c];
@@ -67,11 +84,24 @@ class TravellerController extends Controller
             $t->postcode = $request->get('postcode')[$c];
             $t->city = $request->get('city')[$c];
             $t->state = $request->get('state')[$c];
-            $t->refno = str_random(8);
+            $t->refno = $refno;
             $t->plan = $request->get('key');
             $t->save();
         }
-        return "success";        
+        $key = $request->get('plan');
+        $name = $request->get('name');
+        $premiums = $request->get('premiums');
+        $pax = $request->get('pax');
+        $destination = $request->get('destination');
+        $travelling_days = $request->get('travelling_days');
+        $total = intval($premiums) * intval($pax);
+        $customer = [
+            "name" => $request->get('name')[0],
+            "email" => $request->get('email')[0],
+            "phone_number" => $request->get('phone_number')[0],
+        ];
+        $signature = hash("sha256", "889br2OaONM15551".$refno.$total."00MYR");
+        return view('public.payment', compact('key', 'name', 'premiums', 'pax', 'destination', 'travelling_days', 'total', 'refno', 'customer', 'signature'));        
     }
 
     /**

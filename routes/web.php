@@ -32,4 +32,5 @@ Route::get('/traveller-info', function () {
 Route::post('/traveller-info', 'TravellerController@create')->name('traveller-info');
 Route::post('/traveller-create', 'TravellerController@store')->name('traveller-create');
 
-Route::get('/payment', 'PaymentController@create')->name('payment-form');
+Route::post('/payment/response', 'PaymentController@create')->name('payment-response');
+Route::post('/payment/backend', 'PaymentController@store')->name('payment-backend');

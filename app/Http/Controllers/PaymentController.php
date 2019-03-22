@@ -25,7 +25,7 @@ class PaymentController extends Controller
     public function create(Request $request)
     {
         //
-        return view('public.payment');
+        dd($request->all());
     }
 
     /**
@@ -37,6 +37,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**

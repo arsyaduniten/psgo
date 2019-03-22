@@ -30,7 +30,7 @@
 	</svg>
 </div>
 <p class="font-bold this-black text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found</p>
-<form class="container mx-auto flex justify-between flex-wrap" method="POST" action="{{ route('traveller-info') }}" id="planForm">
+<form class="container mx-auto flex justify-between flex-wrap" method="post" action="{{ route('traveller-info') }}" id="planForm">
 	@csrf
 	<input type="hidden" name="pax" value="{{ $pax }}">
 	<input type="hidden" name="travelling_days" value="{{ $travelling_days }}">
