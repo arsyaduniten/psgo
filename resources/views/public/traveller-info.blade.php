@@ -119,7 +119,7 @@
 					</div>
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 2</label>
-						<input type="text" name="address_2[]" class="px-2 p-2 border border-grey-dark">
+						<input type="text" data-id="address2" name="address_2[]" class="px-2 p-2 border border-grey-dark">
 					</div>
 				</div>
 				<div class="flex -my-6">
@@ -202,8 +202,12 @@ $(document).ready(function(){
 		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				exit = true;
+				if($(this).attr('data-id') == "address2"){
+					continue;
+				} else { 
+					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+					exit = true;
+				}
 			}
 		});
 		if(exit){
@@ -230,8 +234,12 @@ $(document).ready(function(){
 		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				exit = true;
+				if($(this).attr('data-id') == "address2"){
+					continue;
+				} else { 
+					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+					exit = true;
+				}
 			}
 		});
 		if(exit){
@@ -254,8 +262,12 @@ $(document).ready(function(){
 		var exit = false;
 		$(':input').each(function(){
 			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				exit = true;
+				if($(this).attr('data-id') == "address2"){
+					continue;
+				} else { 
+					$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+					exit = true;
+				}
 			}
 		});
 		if(exit){
