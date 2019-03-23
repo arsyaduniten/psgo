@@ -38,7 +38,7 @@
 	</svg>
 </div>
 <div class="py-6 flex flex-col justify-center">
-	<img class="mx-auto hidden md:block" src="/images/travel-ai.png">
+	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
 	<div class="flex justify-center">

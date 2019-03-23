@@ -29,7 +29,7 @@
 	    </rect>
 	</svg>
 </div>
-<p class="font-bold this-black text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found</p>
+<p class="font-bold this-black text-2xl md:text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found</p>
 <form class="container mx-auto flex justify-between flex-wrap" method="POST" action="{{ route('traveller-info') }}" id="planForm">
 	@csrf
 	<input type="hidden" name="pax" value="{{ $pax }}">
@@ -42,7 +42,7 @@
 	<input type="hidden" name="medical">
 	<input type="hidden" name="tripcancel">
 	@foreach($available_plans as $key => $plan)
-	<div class="bg-white rounded shadow-1 my-6">
+	<div class="bg-white mx-6 md:mx-0 rounded shadow-1 my-6">
 		<div class="mx-6 my-6 text-center">
 			<img src="/images/allianz-logo.png" class="p-2">
 			<p class="this-black text-2xl font-bold break-words w-64 mx-auto">{{ $plan['name'] }}</p>
@@ -52,16 +52,16 @@
 			</div>
 			<p class="this-black text-2xl">{{ $travelling_days > 1 ? "for ".$travelling_days." days" : "per trip" }}</p>
 			<div class="flex pt-16 justify-between text-left">
-				<p class="px-4">Death & disability <br>protection</p>
-				<p class="px-4 font-bold text-blue">Lump Sum of <br> RM{{ number_format($plan['benefits']['death']) }}</p>
+				<p class="px-2 md:px-4">Death & disability <br>protection</p>
+				<p class="px-2 md:px-4 font-bold text-blue">Lump Sum of <br> RM{{ number_format($plan['benefits']['death']) }}</p>
 			</div>
 			<div class="flex pt-6 justify-between text-left">
-				<p class="px-4">Medical <br> Expenses</p>
-				<p class="px-4 font-bold text-blue"><?php echo $plan['benefits']['medical'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['medical']) ?></p>
+				<p class="px-2 md:px-4">Medical <br> Expenses</p>
+				<p class="px-2 md:px-4 font-bold text-blue"><?php echo $plan['benefits']['medical'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['medical']) ?></p>
 			</div>
 			<div class="flex pt-6 justify-between text-left">
-				<p class="px-4">Cancelled <br> Trip</p>
-				<p class="px-4 font-bold text-blue"><?php echo $plan['benefits']['tripcancel'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['tripcancel']) ?></p>
+				<p class="px-2 md:px-4">Cancelled <br> Trip</p>
+				<p class="px-2 md:px-4 font-bold text-blue"><?php echo $plan['benefits']['tripcancel'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['tripcancel']) ?></p>
 			</div>
 			<div class="flex flex-col">
 				<button class="blue-btn pb-4 py-2 text-xl mt-12 mx-10 selectPlan" data-key="{{ $key }}">Select Plan</button>
