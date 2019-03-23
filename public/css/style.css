@@ -13,8 +13,14 @@ body{
 	filter: blur(3px);
 }
 
+.line-break {
+	box-sizing: border-box;
+	border: 1px solid #9CC4F5;
+}
+
 .cc-input{
-	border: 1px solid #0C80FD;	
+	border: 1px solid #0C80FD;
+	color: #0C80FD;	
 	border-radius: 2px;	
 	background-color: #F8FCFF;
 }

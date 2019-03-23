@@ -1,5 +1,5 @@
 <div class="flex m-4 px-16 py-4">
-	<div class="flex-auto w-2/3">
+	<div class="flex-auto w-2/3 text-center md:text-left">
 		<img class="" src="/images/pslogo@1x.png">
 	</div>
 	<div class="hidden md:flex flex-auto w-1/3">
