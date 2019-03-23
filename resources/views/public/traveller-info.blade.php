@@ -7,6 +7,13 @@
     	background-size: cover;
     	background-repeat: no-repeat;
 	}
+
+	input[name="id_number[]"] {
+	     width: 100%; 
+	     box-sizing: border-box;
+	     -webkit-box-sizing:border-box;
+	     -moz-box-sizing: border-box;
+	}
 </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 @endsection
@@ -30,7 +37,7 @@
 	    </rect>
 	</svg>
 </div>
-<div class="container mx-auto flex shadow-1 flex-col">
+<div class="container md:mx-auto flex shadow-1 flex-col mx-6">
 	<div class="flex header-bg">
 		<div class="logo header-bg">
 			<img class="p-6 px-12" src="/images/allianz-logo.png">
@@ -40,7 +47,7 @@
 			<p class="p-6 this-black font-bold text-xl">{{ $plan['name'] }}</p>
 		</div>
 	</div>
-	<div class="flex bg-white">
+	<div class="flex flex-col md:flex-row bg-white">
 		<div class="header-bg text-center md:w-1/6 flex flex-col py-4" id="nav-tabs">
 			@foreach(range(1,$pax) as $p)
 			<button class="bg-transparent pb-4 py-2 mt-4 mx-10 info-btn this-black nav-btn" traveller-id="traveller-{{ $p }}" id="traveller-btn-{{ $p }}"><i class="text-blue-lighter fas fa-user"></i><span class="px-4">{{ $p }}</span></button>
@@ -53,7 +60,7 @@
 			@foreach(range(1,$pax) as $p)
 			<div id="traveller-{{ $p }}" class="hidden traveller-form m-4">
 				<p class="text-xl this-black font-bold px-4 pt-2">Traveller {{ $p }} Information</p>
-				<div class="flex">
+				<div class="flex flex-col md:flex-row">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
 						<input type="text" name="name[]" data-id="name" class="px-2 p-2 border border-grey-dark">
@@ -74,7 +81,7 @@
 						<span class="text-sm text-red m-1 hidden" id="id-label">* This field is required</span>
 					</div>
 				</div>
-				<div class="flex -my-6">
+				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Email<span class="text-red p-2">*</span></label>
 						<input type="text" name="email[]" data-id="email" class="px-2 p-2 border border-grey-dark">
@@ -89,7 +96,7 @@
 						<span class="text-sm text-red m-1 hidden" id="phone-label">* This field is required</span>
 					</div>
 				</div>
-				<div class="flex -my-6">
+				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Nationality<span class="text-red p-2">*</span></label>
 						<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="nationality[]">
@@ -111,7 +118,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="flex -my-6">
+				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 1<span class="text-red p-2">*</span></label>
 						<input type="text" name="address_1[]" data-id="address" class="px-2 p-2 border border-grey-dark">
@@ -122,7 +129,7 @@
 						<input type="text" name="address_2[]" id="address_2" class="px-2 p-2 border border-grey-dark">
 					</div>
 				</div>
-				<div class="flex -my-6">
+				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex flex-col p-4">
 						<label class="py-2">Postcode<span class="text-red p-2">*</span></label>
 						<input type="text" name="postcode[]" data-id="postcode" class="px-2 p-2 border border-grey-dark">
@@ -162,20 +169,20 @@
 			<input type="hidden" name="name" value="{{ $plan['name'] }}">
 			<input type="hidden" name="premiums" value="{{ $plan['premiums'] }}">
 		</form>
-		<div class="w-full pricing mx-12 my-6 border-2 border-blue bg-white rounded bg-inherit p-4">
+		<div class="md:w-full pricing mx-auto md:mx-12 my-6 border-2 border-blue bg-white rounded bg-inherit p-4">
 			<p class="text-blue text-sm font-bold">Plan Selected</p><br>
-			<p class="flex this-black text-3xl font-bold -mt-5 items-center"><span class="pr-2">{{ $plan['name'] }}</span><img src="/images/tick.png" class=""></p>
-			<div class="flex pt-10 justify-between text-left">
-				<p class="px-4">Death & disability <br>protection</p>
-				<p class="px-4 font-bold text-blue">Lump Sum<br> RM{{ number_format($plan['benefits']['death']) }}</p>
+			<p class="flex this-black text-xl md:text-3xl font-bold -mt-5 items-center"><span class="pr-2">{{ $plan['name'] }}</span><img src="/images/tick.png" class=""></p>
+			<div class="flex pt-10 md:justify-between text-left">
+				<p class="px-4 text-sm md:text-base">Death & disability <br>protection</p>
+				<p class="px-4 text-sm md:text-base font-bold text-blue">Lump Sum<br> RM{{ number_format($plan['benefits']['death']) }}</p>
 			</div>
-			<div class="flex pt-6 justify-between text-left">
-				<p class="px-4">Medical <br> Expenses</p>
-				<p class="px-4 font-bold text-blue"><?php echo $plan['benefits']['medical'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['medical']) ?></p>
+			<div class="flex pt-6 md:justify-between text-left">
+				<p class="px-4 text-sm md:text-base">Medical <br> Expenses</p>
+				<p class="px-4 text-sm md:text-base font-bold text-blue"><?php echo $plan['benefits']['medical'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['medical']) ?></p>
 			</div>
-			<div class="flex pt-6 justify-between text-left">
-				<p class="px-4">Cancelled <br> Trip</p>
-				<p class="px-4 font-bold text-blue"><?php echo $plan['benefits']['tripcancel'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['tripcancel']) ?></p>
+			<div class="flex pt-6 md:justify-between text-left">
+				<p class="px-4 text-sm md:text-base">Cancelled <br> Trip</p>
+				<p class="px-4 text-sm md:text-base font-bold text-blue"><?php echo $plan['benefits']['tripcancel'] == "Unlimited" ? "Unlimited" : "Reimburse up<br> to RM".number_format($plan['benefits']['tripcancel']) ?></p>
 			</div>
 			<div class="flex justify-center content-start pt-8">
 				<span class="font-bold this-black currency pt-4">RM</span>
