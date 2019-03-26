@@ -126,7 +126,7 @@
 					</div>
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 2</label>
-						<input type="text" name="address_2[]" id="address_2" class="px-2 p-2 border border-grey-dark">
+						<input type="text" name="address_2[]"  class="px-2 p-2 border border-grey-dark address_2">
 					</div>
 				</div>
 				<div class="flex flex-col md:flex-row -my-6">
@@ -147,7 +147,7 @@
 							<option value="wp">Wilayah Persekutuan</option>
 							<option value="selangor">Selangor</option>
 						</select>
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="state-label">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex my-6 mx-2">
@@ -207,10 +207,12 @@ $(document).ready(function(){
 	$("#traveller-1").removeClass("hidden");
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
 	$(".nav-btn").click(function(e){
+		e.preventDefault();
 		var exit = false;
-		$('input:not(#address_2)').each(function(){
+		$('input:not(.address_2)').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				console.log($(this));
 				exit = true;
 			}
 		});
@@ -235,10 +237,13 @@ $(document).ready(function(){
 	});
 
 	$(".next-btn").click(function(e){
+		e.preventDefault();
 		var exit = false;
-		$('input:not(#address_2)').each(function(){
+		$('input:not(.address_2)').each(function(){
+			console.log($(this));
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
+				console.log($(this));
 				exit = true;
 			}
 		});
@@ -260,7 +265,7 @@ $(document).ready(function(){
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
 		var exit = false;
-		$('input:not(#address_2)').each(function(){
+		$('input:not(.address_2)').each(function(){
 			if($(this).val() == ""){
 				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
 				console.log($(this));

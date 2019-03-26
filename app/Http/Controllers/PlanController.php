@@ -30,7 +30,7 @@ class PlanController extends Controller
 	    $response = $client->request('GET', 'https://humn27zyud.execute-api.ap-southeast-1.amazonaws.com/latest?id=1_hJK5K2iJMFwYNmE0Dyo5Vd5zzQAJvkK74nl1Byq4KE&sheet=4');
 	    $response = $response->getBody()->getContents();
 	    $allname = json_decode($response, true);
-    	$country_index = array_search($request->get('destination'),$allcountries['columns']['countries']);
+    	$country_index = array_search(ucfirst($request->get('destination')),$allcountries['columns']['countries']);
     	$available_plans = $available_plans_name = [];
     	$travelling_days_index = $travelling_days - 1;
     	if(!$country_index){

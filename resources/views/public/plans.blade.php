@@ -42,7 +42,7 @@
 	<input type="hidden" name="medical">
 	<input type="hidden" name="tripcancel">
 	@foreach($available_plans as $key => $plan)
-	<div class="bg-white mx-6 md:mx-0 rounded shadow-1 my-6">
+	<div class="bg-white mx-auto md:mx-0 rounded shadow-1 my-6">
 		<div class="mx-6 my-6 text-center">
 			<img src="/images/allianz-logo.png" class="p-2">
 			<p class="this-black text-2xl font-bold break-words w-64 mx-auto">{{ $plan['name'] }}</p>
