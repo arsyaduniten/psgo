@@ -63,8 +63,8 @@
 				<div class="flex flex-col md:flex-row">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Name <span class="text-grey-dark italic">(as per ID)</span><span class="text-red p-2">*</span></label>
-						<input type="text" name="name[]" data-id="name" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="name-label">* This field is required</span>
+						<input type="text" name="name[]" data-id="name" input-no="{{ $p }}" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="name-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex flex-col p-4">
 						<label class="py-2">ID Type and Number<span class="text-red p-2">*</span></label>
@@ -76,24 +76,24 @@
 								</select>
 								<i class="fas fa-chevron-down" id="id-type-arrow"></i>
 							</div>
-							<input type="text" name="id_number[]" data-id="id" class="px-2 p-2">
+							<input type="text" input-no="{{ $p }}" name="id_number[]" data-id="id" class="px-2 p-2 id_number">
 						</div>
-						<span class="text-sm text-red m-1 hidden" id="id-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="id-label-{{ $p }}">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Email<span class="text-red p-2">*</span></label>
-						<input type="text" name="email[]" data-id="email" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="email-label">* This field is required</span>
+						<input type="text" input-no="{{ $p }}" name="email[]" data-id="email" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="email-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Contact Number<span class="text-red p-2">*</span></label>
 						<div class="flex border border-grey-dark">
 							<button class="px-2 p-2 border-r border-grey-dark" disabled>+60</button>
-							<input type="text" name="phone_number[]" data-id="phone" class="px-2 p-2">
+							<input type="text" input-no="{{ $p }}" name="phone_number[]" data-id="phone" class="px-2 p-2">
 						</div>
-						<span class="text-sm text-red m-1 hidden" id="phone-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="phone-label-{{ $p }}">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex flex-col md:flex-row -my-6">
@@ -103,16 +103,16 @@
 							<option value="my">Malaysia</option>
 							<option value="sg">Singapore</option>
 						</select>
-						<span class="text-sm text-red m-1 hidden" id="nationality-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="nationality-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Date of Birth<span class="text-red p-2">*</span></label>
-						<input type="date" name="dob[]" data-id="dob" class="px-2 p-1 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="dob-label">* This field is required</span>
+						<input type="date" name="dob[]" id="dob-{{ $p }}" data-id="dob" class="px-2 p-1 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="dob-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex-1 flex flex-col p-4">
 						<label class="py-2">Gender<span class="text-red p-2">*</span></label>
-						<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" name="gender[]">
+						<select class="px-2 p-2 border border-grey-dark rounded-none bg-white" id="gender-{{ $p }}" name="gender[]">
 							<option value="0">Male</option>
 							<option value="1">Female</option>
 						</select>
@@ -121,24 +121,24 @@
 				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 1<span class="text-red p-2">*</span></label>
-						<input type="text" name="address_1[]" data-id="address" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="address-label">* This field is required</span>
+						<input type="text" input-no="{{ $p }}" name="address_1[]" data-id="address" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="address-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex-auto flex flex-col p-4">
 						<label class="py-2">Address 2</label>
-						<input type="text" name="address_2[]"  class="px-2 p-2 border border-grey-dark address_2">
+						<input type="text" input-no="{{ $p }}" name="address_2[]"  class="px-2 p-2 border border-grey-dark address_2">
 					</div>
 				</div>
 				<div class="flex flex-col md:flex-row -my-6">
 					<div class="flex flex-col p-4">
 						<label class="py-2">Postcode<span class="text-red p-2">*</span></label>
-						<input type="text" name="postcode[]" data-id="postcode" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="postcode-label">* This field is required</span>
+						<input type="text" input-no="{{ $p }}" name="postcode[]" data-id="postcode" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="postcode-label-{{ $p }}">* This field is required</span>
 					</div>
 					<div class="flex flex-col p-4">
 						<label class="py-2">City<span class="text-red p-2">*</span></label>
-						<input type="text" name="city[]" data-id="city" class="px-2 p-2 border border-grey-dark">
-						<span class="text-sm text-red m-1 hidden" id="city-label">* This field is required</span>
+						<input type="text" input-no="{{ $p }}" name="city[]" data-id="city" class="px-2 p-2 border border-grey-dark">
+						<span class="text-sm text-red m-1 hidden" id="city-label-{{ $p }}">* This field is required</span>
 					</div>
 					<input type="hidden" name="key" value="{{ $plan['key'] }}">
 					<div class="flex flex-col p-4">
@@ -147,12 +147,12 @@
 							<option value="wp">Wilayah Persekutuan</option>
 							<option value="selangor">Selangor</option>
 						</select>
-						<span class="text-sm text-red m-1 hidden" id="state-label">* This field is required</span>
+						<span class="text-sm text-red m-1 hidden" id="state-label-{{ $p }}">* This field is required</span>
 					</div>
 				</div>
 				<div class="flex my-6 mx-2">
 					@if($p != 1)
-					<a class="bg-transparent px-4 cursor-pointer pb-5 pt-4 info-btn this-black next-btn mx-2" traveller-id="traveller-{{ $p - 1 }}" btn-id="{{ $p - 1 }}">Previous: Traveller {{ $p - 1 }}</a>
+					<a class="bg-transparent px-4 cursor-pointer pb-5 pt-4 info-btn this-black next-btn prev-btn mx-2" traveller-id="traveller-{{ $p - 1 }}" btn-id="{{ $p - 1 }}">Previous: Traveller {{ $p - 1 }}</a>
 					@endif
 					@if($p < $pax)
 					<a class="bg-transparent px-4 cursor-pointer pb-5 pt-4 info-btn this-black next-btn mx-2" traveller-id="traveller-{{ $p + 1 }}" btn-id="{{ $p + 1 }}">Next: Traveller {{ $p + 1 }}</a>
@@ -203,29 +203,48 @@ function blurAll(){
 	$("#loader").removeClass('hidden');
 }
 $(document).ready(function(){
-	console.log($("input"));
+	$(".id_number").blur(function(){
+		var ic = $(this).val();
+		if(ic.match(/^(\d{2})(\d{2})(\d{2})-?\d{2}-?\d{4}$/)) {
+		    var year = RegExp.$1;
+		    var month = RegExp.$2;
+		    var day = RegExp.$3;
+		    
+		    var now = new Date().getFullYear().toString();
+
+		    var decade = now.substr(0, 2);
+		    if (now.substr(2,2) > year) {
+		        year = parseInt(decade.concat(year.toString()), 10);
+		    }
+
+		    var date = new Date(year, (month - 1), day, 0, 0, 0, 0);
+		    $("#dob-"+$(this).attr("input-no")).val(date.getFullYear()+"-"+month+"-"+date.getDate());
+		    var gender_val = ic[ic.length-1];
+		    if ( gender_val % 2 == 0) {
+				gender_val = 1;
+			}else{
+				gender_val = 0;
+			}
+		    $("#gender-"+$(this).attr("input-no")).val(gender_val);
+		}
+	});
 	$("#traveller-1").removeClass("hidden");
 	$("#traveller-btn-1").removeClass("bg-transparent this-black").addClass("blue-btn");
-	$(".nav-btn").click(function(e){
-		e.preventDefault();
-		var exit = false;
-		$('input:not(.address_2)').each(function(){
-			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				console.log($(this));
-				exit = true;
-			}
-		});
-		if(exit){
-			return;
+	$(".nav-btn").click(function(){
+		if(!$(this).hasClass('prev-btn')){
+			var empty = $(this).parent().parent().find("input").not(":hidden").filter(function() {
+		        return this.value === "";
+		    });
+		    if(empty.length) {
+		        var input_label = "#"+$(empty).attr('data-id')+"-label"+"-"+$(empty).attr('input-no');
+		        $(input_label).removeClass('hidden');
+		        return;
+		    }
 		}
 		$(".traveller-form").each(function(){
 			$(this).addClass('hidden');
 		});
 		$("#"+$(this).attr('traveller-id')).removeClass('hidden');
-		// $(".qa-section").each(function(){
-		// 	$(this).hide();
-		// });
 		$(".nav-btn").each(function(){
 			$(this).removeClass("blue-btn");
 			$(this).addClass("info-btn this-black bg-transparent");
@@ -236,19 +255,16 @@ $(document).ready(function(){
 		$(el).show();
 	});
 
-	$(".next-btn").click(function(e){
-		e.preventDefault();
-		var exit = false;
-		$('input:not(.address_2)').each(function(){
-			console.log($(this));
-			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				console.log($(this));
-				exit = true;
-			}
-		});
-		if(exit){
-			return;
+	$(".next-btn").click(function(){
+		if(!$(this).hasClass('prev-btn')){
+			var empty = $(this).parent().parent().find("input").not(":hidden").filter(function() {
+		        return this.value === "";
+		    });
+		    if(empty.length) {
+		        var input_label = "#"+$(empty).attr('data-id')+"-label"+"-"+$(empty).attr('input-no');
+		        $(input_label).removeClass('hidden');
+		        return;
+		    }
 		}
 		$(".traveller-form").each(function(){
 			$(this).addClass('hidden');
@@ -264,17 +280,14 @@ $(document).ready(function(){
 
 	$("#submit-btn").click(function(e){
 		e.preventDefault();
-		var exit = false;
-		$('input:not(.address_2)').each(function(){
-			if($(this).val() == ""){
-				$("#"+$(this).attr('data-id')+"-label").removeClass('hidden');
-				console.log($(this));
-				exit = true;
-			}
-		});
-		if(exit){
-			return;
-		}
+		var empty = $(this).parent().parent().find("input").not(":hidden").filter(function() {
+	        return this.value === "";
+	    });
+	    if(empty.length) {
+	        var input_label = "#"+$(empty).attr('data-id')+"-label"+"-"+$(empty).attr('input-no');
+	        $(input_label).removeClass('hidden');
+	        return;
+	    }
 		blurAll();
 		$("#mainForm").submit();
 	});
