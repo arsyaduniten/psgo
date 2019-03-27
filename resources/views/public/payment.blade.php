@@ -31,18 +31,18 @@
 	    </rect>
 	</svg>
 </div>
-<div class="container mx-auto flex shadow-1">
+<div class="container mx-auto flex flex-col-reverse md:flex-row shadow-1">
 	<div class="flex flex-col bg-white w-full">
 		<div class="flex">
 			<p class="text-3xl font-bold m-12" style="color:#0A3C77;">Please fill out<br>your payment<br>details</p>
-			<img src="/images/wallet.png">
+			<img class="hidden md:block" src="/images/wallet.png">
 		</div>
 		<div class="flex mx-12">
 			<div class="ml-0 m-2" style="border: 2px solid #D4E0FF;"><img class="p-1 px-3" src="/images/mastercard.png" style="padding-top: 6px;"></div>
 			<div class="m-2" style="border: 2px solid #D4E0FF;"><img class="p-2" src="/images/Visa.png"></div>
 		</div>
 		<form class="flex mx-12 my-6 mb-12 justify-left" method="post" action="https://payment.ipay88.com.my/epayment/entry.asp">
-			<div class="w-1/2">
+			<div class="w-full md:w-1/2">
 				<div class="flex flex-col">
 					<label class="text-xs this-black py-2">CARD NUMBER</label>
 					<input type="tel" name="cc_no" id="cc_no" maxlength="19" class="border rounded-sm p-4 py-2 cc-input">
@@ -84,7 +84,7 @@
 			value="https://go.policystreet.com/payment/backend">
 		</form>
 	</div>
-	<div class="flex flex-col w-full" style="background: #F8FCFF;">
+	<div class="flex flex-col w-full px-12 md:px-0" style="background: #F8FCFF;">
 		<div>
 			<img src="/images/family.png">
 		</div>
