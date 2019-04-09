@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('public.landing');
-});
+Route::get('/', 'PlanController@index');
 
 Route::post('/getplans', 'PlanController@getplans')->name("getplans");
 

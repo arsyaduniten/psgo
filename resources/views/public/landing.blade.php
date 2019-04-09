@@ -37,7 +37,7 @@
 	    </rect>
 	</svg>
 </div>
-<div class="py-6 flex flex-col justify-center">
+<div class="py-6 flex flex-col justify-center mx-12">
 	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
@@ -45,11 +45,15 @@
 		<form autocomplete="off" class="flex flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
 			@csrf
 			<div class="flex">
-				<div>
-					<p class="px-4 p-2 font-bold text-sm this-grey">Travelling to</p>
-					<input class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" type="text" name="destination" id="destination">
+				<div class="w-full">
+					<p class="md:px-4 p-2 font-bold text-sm this-grey">Select Country</p>
+					<select class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
+					@foreach($countries as $country)
+					<option value="{{ $country }}">{{ $country }}</option>
+					@endforeach
+					</select>
 				</div>
-				<img class="py-5 px-3" src="/images/location-ic.png">
+				<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex">
@@ -57,7 +61,7 @@
 					<p class="px-4 p-2 font-bold text-sm this-grey">Depart date</p>
 					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl text-center md:text-left datepicker" type="text" name="depart_date" id="depart" placeholder="dd-mm-yyyy">
 				</div>
-				<img class="py-5 px-3" src="/images/calendar-ic.png">
+				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex">
@@ -65,18 +69,18 @@
 					<p class="px-4 p-2 font-bold text-sm this-grey">Return date</p>
 					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl rounded-r-lg text-center md:text-left datepicker" type="text" name="return_date" id="return" placeholder="dd-mm-yyyy">
 				</div>
-				<img class="py-5 px-3" src="/images/calendar-ic.png">
+				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex mx-auto md:mx-0">
-				<img class="py-4 px-2 cursor-pointer" src="/images/minus-ic.png" id="minus-btn">
+				<img class="my-5 mx-2 cursor-pointer" src="/images/minus-ic.png" id="minus-btn" style="height: 30px; width: 30px;">
 				<div class="">
 					<p class="px-4 p-2 font-bold text-sm this-grey">Traveller</p>
 					<input class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl rounded-r-lg w-32" type="text" disabled value="1" name="traveller">
 				</div>
 				<div class="flex flex-row md:flex-row-reverse">
-					<img class="py-4 px-2 cursor-pointer" src="/images/plus-ic.png" id="plus-btn">
-					<img class="py-5 ml-5 md:ml-0" src="/images/traveller.png">
+					<img class="my-5 mx-2 cursor-pointer" src="/images/plus-ic.png" id="plus-btn" style="height: 30px; width: 30px;">
+					<img class="my-5 mx-2 md:ml-0" src="/images/traveller.png" style="height: 20px; width: 20px;">
 				</div>
 			</div>
 			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:p-6 md:mx-2 self-center md:rounded font-bold whatsapp-btn" type="submit">Get Quotation</button>
@@ -131,12 +135,12 @@ function blurAll(){
 }
 
 
-function initMap(){
-	var input = document.getElementById('destination');
-    var autocomplete = new google.maps.places.Autocomplete(input);
-}
+// function initMap(){
+// 	var input = document.getElementById('destination');
+//     var autocomplete = new google.maps.places.Autocomplete(input);
+// }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMh6XVDcpIrX2uQs4KMpjr_bapHqya4SU&libraries=places&callback=initMap"
-        async defer></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMh6XVDcpIrX2uQs4KMpjr_bapHqya4SU&libraries=places&callback=initMap"
+        async defer></script> -->
 @endsection
 

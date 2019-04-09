@@ -143,4 +143,15 @@ class PlanController extends Controller
 		}
 		return false;
 	}
+
+	public function index()
+	{
+    	$client = new \GuzzleHttp\Client();
+		$response = $client->request('GET', 'https://humn27zyud.execute-api.ap-southeast-1.amazonaws.com/latest?id=1_hJK5K2iJMFwYNmE0Dyo5Vd5zzQAJvkK74nl1Byq4KE&sheet=2');
+	    $response = $response->getBody()->getContents();
+	    $allcountries = json_decode($response, true);
+	    $countries = $allcountries['columns']['countries'];
+	    sort($countries);
+		return view('public.landing', compact('countries'));
+	}
 }
