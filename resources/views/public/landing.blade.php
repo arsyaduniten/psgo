@@ -41,11 +41,10 @@
 	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
-	<div class="flex justify-center">
-		<form autocomplete="off" class="flex flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
+		<form autocomplete="off" class="flex justify-center mx-auto flex-col flex-wrap text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
 			@csrf
-			<div class="flex">
-				<div class="w-full">
+			<div class="flex flex-no-grow">
+				<div class="flex flex-col">
 					<p class="md:px-4 p-2 font-bold text-sm this-grey">Select Country</p>
 					<select class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
 					@foreach($countries as $country)
@@ -53,7 +52,9 @@
 					@endforeach
 					</select>
 				</div>
-				<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
+				<div>
+					<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
+				</div>
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex">
@@ -85,7 +86,6 @@
 			</div>
 			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:p-6 md:mx-2 self-center md:rounded font-bold whatsapp-btn" type="submit">Get Quotation</button>
 		</form>
-	</div>
 </div>
 @endsection
 
