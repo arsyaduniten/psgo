@@ -51,8 +51,11 @@
 					<p class="md:px-4 p-2 font-bold text-sm this-grey">Select Country</p>
 					<select class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
 					@foreach($countries as $country)
+					@if($country != "All other countries" and $country != "0")
 					<option value="{{ $country }}">{{ $country }}</option>
+					@endif
 					@endforeach
+					<option value="All other countries">All other countries</option>
 					</select>
 				</div>
 			</div>
@@ -84,7 +87,7 @@
 					<img class="my-5 mx-2 md:ml-0" src="/images/traveller.png" style="height: 20px; width: 20px;">
 				</div>
 			</div>
-			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-center md:rounded font-bold whatsapp-btn" type="submit">Get Quotation</button>
+			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-center md:rounded font-bold whatsapp-btn text-sm" type="submit">Get Quotation</button>
 		</form>
 </div>
 @endsection
