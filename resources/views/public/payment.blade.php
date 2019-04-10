@@ -31,6 +31,9 @@
 	    </rect>
 	</svg>
 </div>
+<div class="flex justify-center container mx-auto md:justify-left">
+	<button onclick="window.history.back();" class="p-4 bg-blue-dark text-white no-underline text-center flex justify-between"><i class="fas fa-arrow-left mx-2"></i><span>Go back to Traveller Information</span></button>
+</div>
 <div class="container mx-auto flex flex-col-reverse md:flex-row shadow-1">
 	<div class="flex flex-col bg-white w-full">
 		<div class="flex">

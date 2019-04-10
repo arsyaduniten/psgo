@@ -186,10 +186,13 @@
 			</div>
 			<div class="flex justify-center content-start pt-8">
 				<span class="font-bold this-black currency pt-4">RM</span>
-				<p class="font-bold this-black price-tag">{{ $plan['premiums'] }}</p>
+				<p class="font-bold this-black price-tag">{{ $plan['premiums'] * $pax }}</p>
 				<!-- <span class="font-bold this-black text-2xl self-end pb-2 px-2">/ trip</span> -->
 			</div>
 			<p class="this-black text-xl text-center">{{ $travelling_days > 1 ? "for ".$travelling_days." days" : "per trip" }}</p>
+			<div class="flex justify-center my-3">
+				<button onclick="window.history.back();" class="p-4 bg-blue-dark text-white no-underline text-center flex justify-between"><i class="fas fa-arrow-left mx-2"></i><span>Choose a different plan</span></button>
+			</div>
 		</div>
 	</div>
 </div>

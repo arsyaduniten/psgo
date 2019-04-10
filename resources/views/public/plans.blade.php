@@ -29,7 +29,10 @@
 	    </rect>
 	</svg>
 </div>
-<p class="font-bold this-black text-2xl md:text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found</p>
+<p class="font-bold this-black text-2xl md:text-4xl m-8 text-center">{{ sizeof($available_plans) }} Plans Found for {{ $pax }} Person</p>
+<div class="flex justify-center">
+	<a class="p-4 bg-blue-dark text-white no-underline text-center flex justify-between" href="{{ URL::previous() }}"><i class="fas fa-arrow-left mx-2"></i><span>Go Back to Travel Information</span></a>
+</div>
 <form class="container mx-auto flex justify-between flex-wrap" method="POST" action="{{ route('traveller-info') }}" id="planForm">
 	@csrf
 	<input type="hidden" name="pax" value="{{ $pax }}">
@@ -48,9 +51,14 @@
 			<p class="this-black text-2xl font-bold break-words w-64 mx-auto">{{ $plan['name'] }}</p>
 			<div class="flex justify-center content-start pt-8">
 				<span class="font-bold this-black currency pt-4">RM</span>
-				<p class="font-bold this-black price-tag">{{ $plan['premiums'] }}</p>
+				<p class="font-bold this-black price-tag">{{ $plan['premiums']*$pax }}</p>
 			</div>
 			<p class="this-black text-2xl">{{ $travelling_days > 1 ? "for ".$travelling_days." days" : "per trip" }}</p>
+			<div class="flex justify-center mt-4">
+			@foreach(range(1,$pax) as $p)
+				<img src="/images/traveller-2.png" style="height: 30px;">
+			@endforeach
+			</div>
 			<div class="flex pt-16 justify-between text-left">
 				<p class="px-2 md:px-4">Death & disability <br>protection</p>
 				<p class="px-2 md:px-4 font-bold text-blue">Lump Sum of <br> RM{{ number_format($plan['benefits']['death']) }}</p>
