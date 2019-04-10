@@ -38,12 +38,15 @@
 	</svg>
 </div>
 <div class="py-6 flex flex-col justify-center mx-12">
-	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png">
+	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png" style="height: 200pt;">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
-		<form autocomplete="off" class="flex justify-center mx-auto flex-col flex-wrap text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
+		<form autocomplete="off" class="flex justify-center mx-auto flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
 			@csrf
-			<div class="flex flex-no-grow">
+			<div class="mx-2">
+				<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
+			</div>
+			<div class="flex flex-no-grow max-w-sm">
 				<div class="flex flex-col">
 					<p class="md:px-4 p-2 font-bold text-sm this-grey">Select Country</p>
 					<select class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
@@ -52,25 +55,22 @@
 					@endforeach
 					</select>
 				</div>
-				<div>
-					<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
-				</div>
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex">
-				<div class="w-full md:w-auto">
+				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
+				<div class="">
 					<p class="px-4 p-2 font-bold text-sm this-grey">Depart date</p>
 					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl text-center md:text-left datepicker" type="text" name="depart_date" id="depart" placeholder="dd-mm-yyyy">
 				</div>
-				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex">
+				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
 				<div class="w-full md:w-auto">
 					<p class="px-4 p-2 font-bold text-sm this-grey">Return date</p>
 					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl rounded-r-lg text-center md:text-left datepicker" type="text" name="return_date" id="return" placeholder="dd-mm-yyyy">
 				</div>
-				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
 			</div>
 			<div class="border border-grey-light"></div>
 			<div class="flex mx-auto md:mx-0">
@@ -84,7 +84,7 @@
 					<img class="my-5 mx-2 md:ml-0" src="/images/traveller.png" style="height: 20px; width: 20px;">
 				</div>
 			</div>
-			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:p-6 md:mx-2 self-center md:rounded font-bold whatsapp-btn" type="submit">Get Quotation</button>
+			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-center md:rounded font-bold whatsapp-btn" type="submit">Get Quotation</button>
 		</form>
 </div>
 @endsection
