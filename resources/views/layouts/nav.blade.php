@@ -1,8 +1,8 @@
 <div class="flex m-4 px-16 py-4">
-	<div class="flex-auto w-full text-center md:text-left">
+	<div class="flex-auto text-center md:text-left">
 		<img class="" src="/images/pslogo@1x.png">
 	</div>
-	<div class="hidden md:flex flex-auto">
+	<div class="hidden md:flex items-left">
 		<a class="text-base lg:text-xl font-bold nav-link p-4">Home</a>
 		<a class="text-base lg:text-xl nav-link p-4">About Us</a>
 		<a class="text-base lg:text-xl nav-link p-4">Blog</a>
