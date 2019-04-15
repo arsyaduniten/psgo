@@ -243,7 +243,7 @@
 			@if($planinfos['benefit_personalliability'] != 'NA')
 			<div class="qa m-6">
 				<p class="text-blue-darker font-bold text-lg">If Someone Makes a Claim Against You</p>
-				<p class="text-lg this-black">Lump Sum of RM{{ number_format($planinfos['benefit_personalliability']) }}</p>
+				<p class="text-lg this-black">{{ is_numeric($planinfos['benefit_personalliability']) ? "Lump Sum of RM".number_format($planinfos['benefit_personalliability']) : "Lump Sum of RM".$planinfos['benefit_personalliability'] }}</p>
 			</div>
 			@endif
 		</div>
