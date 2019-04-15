@@ -73,7 +73,7 @@
 			</div>
 			<div class="flex flex-col">
 				<button class="blue-btn pb-4 py-2 text-xl mt-12 mx-10 selectPlan" data-key="{{ $key }}">Select Plan</button>
-				<button class="bg-transparent border-2 border-blue pb-4 py-2 text-xl mt-4 mx-10 info-btn this-black">More Info</button>
+				<a href="/info?key={{ $key }}&plan={{ $plan['name'] }}&premiums={{ $plan['premiums'] }}&pax={{ $pax }}&travelling_days={{ $travelling_days }}&destination={{ $destination }}" class="bg-transparent no-underline border-2 border-blue pb-4 py-2 text-xl mt-4 mx-10 info-btn this-black more-info">More Info</a>
 			</div>
 		</div>
 	</div>
@@ -101,6 +101,11 @@ $(document).ready(function(){
 		$("input[name=tripcancel]").val(plans[plan]['benefits']['tripcancel']);
 		blurAll();
 		$("#planForm").submit();
+	});
+	$(".more-info").click(function(e){
+		e.preventDefault();
+		blurAll();
+		window.location.href = $(this).attr('href');
 	});
 });
 

@@ -15,17 +15,19 @@ Route::get('/', 'PlanController@index');
 
 Route::post('/getplans', 'PlanController@getplans')->name("getplans");
 
-Route::get('/plans', function () {
-    return view('public.plans');
-});
+Route::get('/info', 'PlanController@getinfos')->name("getinfos");
 
-Route::get('/info', function () {
-    return view('public.info');
-});
+// Route::get('/plans', function () {
+//     return view('public.plans');
+// });
 
-Route::get('/traveller-info', function () {
-    return view('public.traveller-info');
-});
+// Route::get('/info', function () {
+//     return view('public.info');
+// });
+
+// Route::get('/traveller-info', function () {
+//     return view('public.traveller-info');
+// });
 
 Route::post('/traveller-info', 'TravellerController@create')->name('traveller-info');
 Route::post('/traveller-create', 'TravellerController@store')->name('traveller-create');

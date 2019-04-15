@@ -25,7 +25,6 @@ class PlanController extends Controller
 	    $response = $client->request('GET', 'https://humn27zyud.execute-api.ap-southeast-1.amazonaws.com/latest?id=1_hJK5K2iJMFwYNmE0Dyo5Vd5zzQAJvkK74nl1Byq4KE&sheet=3');
 	    $response = $response->getBody()->getContents();
 	    $allbenefits = json_decode($response, true);
-	    // dd($allbenefits);
 	    
 	    $response = $client->request('GET', 'https://humn27zyud.execute-api.ap-southeast-1.amazonaws.com/latest?id=1_hJK5K2iJMFwYNmE0Dyo5Vd5zzQAJvkK74nl1Byq4KE&sheet=4');
 	    $response = $response->getBody()->getContents();
@@ -48,6 +47,7 @@ class PlanController extends Controller
     	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['disability'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][4];
     	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['medical'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][9];
     	$available_plans["atcx".config('constants.'.$allianz_reg).'adultnsc']['benefits']['tripcancel'] = $allbenefits['columns']["atcx".config('constants.'.$allianz_reg).'adultnsc'][30];
+    	
 
     	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['name'] = $this->get_name("atc2x".config('constants.'.$allianz_reg).'adultnsc', $allname['rows']);
     	$available_plans["atc2x".config('constants.'.$allianz_reg).'adultnsc']['premiums'] = $allpremiums['columns']["atc2x".config('constants.'.$allianz_reg).'adultnsc'][$travelling_days_index];
@@ -119,7 +119,62 @@ class PlanController extends Controller
 
     	$pax = $request->get('traveller');
     	$destination = $request->get('destination');
-    	return view('public.plans', compact('available_plans', 'travelling_days', 'pax', 'destination'));
+
+		return view('public.plans', compact('available_plans', 'travelling_days', 'pax', 'destination'));
+    }
+
+    public function getinfos(Request $request)
+    {
+    	$client = new \GuzzleHttp\Client();
+    	$response = $client->request('GET', 'https://humn27zyud.execute-api.ap-southeast-1.amazonaws.com/latest?id=1_hJK5K2iJMFwYNmE0Dyo5Vd5zzQAJvkK74nl1Byq4KE&sheet=3');
+	    $response = $response->getBody()->getContents();
+	    $allbenefits = json_decode($response, true);
+
+	    $benefits = [
+	    	"benefit_death_adult" => 0,
+			"benefit_death_sc" => 1, 
+			"benefit_death_child" => 2, 
+			"benefit_death_fam" => 3,
+			"benefit_pd_adult" => 4,
+			"benefit_pd_sc" => 5, 
+			"benefit_pd_child" => 6, 
+			"benefit_pd_fam" => 7,
+			"benefit_medical_adult" => 9, 
+			"benefit_medical_sc" => 10, 
+			"benefit_medical_child" => 11,
+			"benefit_med_fam" => 12, 
+			"benefit_emergencyevacuation" => 13, 
+			"benefit_emergencyrepatriation" => 14, 
+			"benefit_followup" => 15, 
+			"benefit_hospincome" => 18,
+			"benefit_compcare" => 25, 
+			"benefit_childcare" => 27, 
+			"benefit_tripcancel" => 30, 
+			"benefit_tripcurtail" => 31, 
+			"benefit_traveldelay" => 42, 
+			"benefit_misseddept" => 46, 
+			"benefit_missedconnection" => 49,
+			"benefit_traveloverbook" => 51,
+			"benefit_personaleffects" => 32, 
+			"benefit_traveldocs" => 36,
+			"benefit_personalmoney" => 57,
+			"benefit_luggagedelay" => 38,
+			"benefit_personalliability" => 54,
+	    ];
+
+	    $planinfos = [];
+
+	    foreach ($benefits as $category => $benefit) {
+	    	$planinfos[$category] = $this->array_find($request->get('key'), $allbenefits['columns'], $benefit);
+	    }
+
+	    $planinfos['name'] = $request->get('plan');
+	    $planinfos['premiums'] = $request->get('premiums');
+	    $planinfos['pax'] = $request->get('pax');
+	    $planinfos['key'] = $request->get('key');
+	    $planinfos['travelling_days'] = $request->get('travelling_days');
+	    $planinfos['destination'] = $request->get('destination');
+	    return view('public.info', compact('planinfos'));
     }
 
     public function array_find($needle, array $haystack, $index)
