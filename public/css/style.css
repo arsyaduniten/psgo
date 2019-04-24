@@ -83,6 +83,16 @@ textarea:focus, input:focus, button:focus{
 	color:#9B9B9B;
 }
 
+.this-blue{
+	color: #0071ff;
+}
+
+.product-banner{
+	border-radius: 12px;
+  	/*background-image: linear-gradient(30deg, #102397 0%, #187ADF 60%, #00EAF8 100%);*/
+  	background-image: linear-gradient(78deg, #102397 -100%, #187adf 60%, #00eaf8 260%);
+}
+
 .input-color{
 	color:#DE9A29;
 }
