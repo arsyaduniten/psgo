@@ -81,7 +81,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="counter-section flex flex-col items-center px-4">
+				<div class="counter-section flex flex-col items-center px-6">
 					<img src="/images/clock.png" class="mx-4 my-2">
 					<p class="this-white"><span class="font-bold text-xl" id="bold-days" style="color:#FFC360;"></span> left at this price!</p>
 					<div class="countdown flex mt-2">
@@ -123,11 +123,11 @@
 			<div class="flex flex-col">
 				<div class="flex p-8 items-center">
 					<img src="/images/invoice.png">
-					<p class="this-white font-bold px-4">Medical Expenses Reimburse<br>Up to RM 300,000</p>
+					<p class="this-white font-bold px-4">Medical Expenses Reimburse<br>Up to <span class="text-xl" style="color:#FFC360;">RM 300,000</span></p>
 				</div>
 				<div class="flex px-8 items-center">
 					<img class="" src="/images/secure.png">
-					<p class="this-white font-bold px-5">Accidental Death/Disability<br>Lump Sum Payout of RM 300,000</p>
+					<p class="this-white font-bold px-5">Accidental Death/Disability<br>Lump Sum Payout of <span class="text-xl -my-4" style="color:#FFC360;">RM 300,000</span></p>
 				</div>
 			</div>
 		</div>
