@@ -91,6 +91,30 @@ textarea:focus, input:focus, button:focus{
 	border-radius: 12px;
   	/*background-image: linear-gradient(30deg, #102397 0%, #187ADF 60%, #00EAF8 100%);*/
   	background-image: linear-gradient(78deg, #102397 -100%, #187adf 60%, #00eaf8 260%);
+  	background-blend-mode: soft-light;
+}
+
+.promotion-banner{
+  	/*background-image: linear-gradient(to bottom, #5f73e4, #5f73e4), linear-gradient(252deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.5));*/
+  	background-blend-mode: soft-light;
+  	background: #5F73E4;
+	background-image: linear-gradient(-30deg, rgba(255,255,255,1.00) 0%, rgba(0,0,0,0.50) 100%);
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+.pricing-container{
+	border: 2px dashed #FFC360;
+}
+
+.price-section{
+	border-right: 2px solid #430062;
+}
+
+.countdown-block{
+  	background-blend-mode: soft-light;
+	background: #0A3C77;
+	background-image: linear-gradient(-136deg, rgba(255,255,255,1.00) 0%, rgba(0,0,0,0.50) 100%);
 }
 
 .input-color{
