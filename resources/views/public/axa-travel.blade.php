@@ -113,11 +113,11 @@
 			<div class="flex flex-col">
 				<div class="flex p-8 items-center">
 					<img src="/images/money.png">
-					<p class="this-white font-bold px-4">Classic Plan is Most Basic<br> and Affordable</p>
+					<p class="this-white font-bold leading-normal px-4">Classic Plan is Most Basic<br> and Affordable</p>
 				</div>
 				<div class="flex px-8 items-center">
 					<img class="pl-2" src="/images/guarantee.png">
-					<p class="this-white font-bold px-6">ENTRY AGE - 30 days old<br>LAST ENTRY AGE - 79 yrs old</p>
+					<p class="this-white font-bold leading-normal px-6">ENTRY AGE - 30 days old<br>LAST ENTRY AGE - 79 yrs old</p>
 				</div>
 			</div>
 			<div class="flex flex-col">
@@ -127,7 +127,7 @@
 				</div>
 				<div class="flex px-8 items-center">
 					<img class="" src="/images/secure.png">
-					<p class="this-white font-bold px-5">Accidental Death/Disability<br>Lump Sum Payout of <span class="text-xl -my-4" style="color:#FFC360;">RM 300,000</span></p>
+					<p class="this-white font-bold px-5">Accidental Death/Disability<br>Lump Sum Payout of <span class="text-xl" style="color:#FFC360;">RM 300,000</span></p>
 				</div>
 			</div>
 		</div>
