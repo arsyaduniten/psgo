@@ -32,7 +32,7 @@
 
 <div class="container mx-auto flex flex-col mt-12">
 	<p class="text-3xl this-black font-bold text-center">Protect <span class="this-blue">yourself</span> and your <span class="this-blue">loved ones</span> while you are travelling<br> with the most affordable Travel Insurance in Malaysia</p>
-	<a class="mx-auto no-underline" href="/">
+	<a class="mx-auto no-underline affiliate-link" href="https://axa.idevaffiliate.com/103-2-1.html">
 		<div class="flex mt-6 mx-auto">
 			<svg width="191px" height="156px" viewBox="0 0 191 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			    <defs>
@@ -135,7 +135,7 @@
 			<img class="p-4 -mx-5" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased pt-4" style="color:#0071FF;" href="/">Get Offer Now</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/103-2-1.html">Get Offer Now</a>
 </div>
 
 @endsection
@@ -180,6 +180,12 @@ $(document).ready(function(){
 			$("#seconds").text('0');
 		}
 	}, 1000);
+
+	$(".affiliate-link").click(function(e){
+		e.preventDefault();
+		blurAll();
+		window.location.href = $(this).attr('href');
+	});
 });
 
 function blurAll(){
