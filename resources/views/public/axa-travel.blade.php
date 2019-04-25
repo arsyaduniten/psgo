@@ -167,7 +167,7 @@
 			<img class="p-4 -mx-5" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<!-- <a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/103-2-1.html">Get Offer Now</a> -->
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/103-2-1.html">Get Offer Now</a>
 </div>
 
 @endsection
