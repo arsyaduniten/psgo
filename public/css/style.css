@@ -25,6 +25,14 @@ body{
 	background-color: #F8FCFF;
 }
 
+.action-btn{
+	border-radius: 19.5px;
+	background-color: #ffd200;
+	letter-spacing: -0.5px;
+	text-align: center;
+	color: #0a3c77;
+}
+
 select {
    -webkit-appearance: none; 
    -moz-appearance: none;
