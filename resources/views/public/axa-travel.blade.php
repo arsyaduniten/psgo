@@ -1,4 +1,15 @@
 @extends('base')
+@section('gtag')
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139047120-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139047120-1');
+</script>
+@endsection
 
 @section('head')
 <style type="text/css">
@@ -144,6 +155,7 @@
 @section('script')
 <script>
 $(document).ready(function(){
+	blurAll();
 	var countDownDate = new Date();
 	countDownDate.setDate( countDownDate.getDate() + 7 );
 	countDownDate = countDownDate.getTime();
@@ -169,7 +181,7 @@ $(document).ready(function(){
 		$("#hours").text(hours);
 		$("#minutes").text(minutes);
 		$("#seconds").text(seconds);
-
+		deBlur();
 		// If the count down is over, write some text 
 		if (distance < 0) {
 			clearInterval(x);
@@ -191,6 +203,11 @@ $(document).ready(function(){
 function blurAll(){
 	$( "*" ).not( "#loader , body, head, html, svg, rect").addClass('blur');
 	$("#loader").removeClass('hidden');
+}
+
+function deBlur(){
+	$( "*" ).not( "#loader , body, head, html, svg, rect").removeClass('blur');
+	$("#loader").addClass('hidden');
 }
 </script>
 @endsection
