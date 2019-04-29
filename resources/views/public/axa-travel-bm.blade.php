@@ -45,7 +45,7 @@
 	</div>
 </div>
 <div class="container mx-auto flex flex-col mt-12">
-	<p class="text-xl md:text-3xl this-black font-bold text-center">Renew your car insurance policy with the <span class="this-blue">best</span> Motor Insurance<br> offer in Malaysia</p>
+	<p class="text-xl md:text-3xl this-black font-bold text-center">Lindungi diri <span class="this-blue">anda</span> dan <span class="this-blue">keluarga anda</span> ketika berada di negara asing <br>dengan Insurans Perjalanan terbaik di Malaysia</p>
 		<div class="flex md:flex-row mt-6 mx-auto">
 			<svg width="191px" height="156px" viewBox="0 0 191 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			    <defs>
@@ -81,10 +81,10 @@
 			                        <tspan x="141.181372" y="59">%</tspan>
 			                    </text>
 			                    <text id="25" font-family="ClearSans-Bold, Clear Sans" font-size="80" font-weight="bold" letter-spacing="-2.368002" fill="#0A3C77">
-			                        <tspan x="51.336752" y="98">20</tspan>
+			                        <tspan x="51.336752" y="98">25</tspan>
 			                    </text>
 			                    <text id="Discount" font-family="ClearSans, Clear Sans" font-size="16" font-weight="bold" letter-spacing="-0.4735999" fill="#0A3C77">
-			                        <tspan x="66.4998683" y="126">Discount</tspan>
+			                        <tspan x="66.4998683" y="126">Diskaun</tspan>
 			                    </text>
 			                </g>
 			            </g>
@@ -93,24 +93,25 @@
 			</svg>
 			<div class="promotion-banner flex">
 				<div class="price-section flex items-center px-4">
-					<!-- <div class="flex flex-col">
-						<p class="py-2 px-4 text-xl this-white">As low as</p>
-						<div class="flex flex-col py-2 px-4 pr-8 this-white">
+					<div class="flex flex-col">
+						<p class="py-2 px-4 text-xl this-white">Serendah</p>
+						<div class="flex flex-col py-2 px-4 pr-4 this-white">
 							<div class="pricing-container flex p-2 justify-center">
 								<div class="text-xs">RM</div>
 								<div class="text-5xl font-bold -mt-3">12</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
+					<div class="text-5xl text-white font-bold pr-4">+</div>
 					<div>
-						<p class="font-bold text-center text-white mb-4" style="font-size: 50px;">
-							+ RM20 Cashback
+						<p class="font-bold text-left pt-1 text-3xl text-white">
+							RM10 Setem Duti <br><span class="text-5xl">Percuma</span>
 						</p>
 					</div>
 				</div>
 				<div class="counter-section flex flex-col items-center text-center px-6">
 					<img src="/images/clock.png" class="mx-4 my-2 mb-0">
-					<p class="this-white"><span class="font-bold text-xl" id="bold-days" style="color:#FFC360;"></span> left for this offer!</p>
+					<p class="this-white"><span class="font-bold text-xl" id="bold-days" style="color:#FFC360;"></span> hingga promosi tamat!</p>
 					<!-- <div class="countdown flex mt-2">
 						<div class="flex flex-col content-center px-2">
 							<div class="p-2 rounded text-center font-bold countdown-block" style="color:#E3F0FF;" id="days"></div>
@@ -129,40 +130,32 @@
 							<p class="this-white">Seconds</p>
 						</div>
 					</div> -->
-					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Get Offer Now</a>
+					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=GA" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Dapatkan Sekarang</a>
 				</div>
 			</div>
 		</div>
 	<div class="product-banner flex flex-col mt-6 px-16 mx-auto shadow-md">
-		<p class="-mx-12 font-bold text-2xl px-4 pt-4 pb-1" style="color:#E3F0FF;">AXA Motor Online</p>
-		<p class="-mx-12 text-white px-4">Wonder why AXA Motor is considered one of the most innovative motor insurance in town?</p>
+		<p class="-mx-12 font-bold text-2xl px-4 pt-4 pb-1" style="color:#E3F0FF;">AXA Smart Traveller</p>
+		<p class="-mx-12 text-white px-4">Mengapa AXA Smart Traveller ialah Insurans Perjalanan yang paling popular?</p>
 		<div class="flex flex-col md:flex-row">
 			<div class="flex flex-col">
-				<div class="flex pt-8 px-8 items-center">
+				<div class="flex p-8 items-center">
+					<img src="/images/money.png">
+					<p class="this-white font-bold md:leading-normal px-4">Pelan Klasik dan<br> amat berpatutan</p>
+				</div>
+				<div class="flex px-8 items-center">
 					<img class="pl-2" src="/images/guarantee.png">
-					<p class="this-white font-bold md:leading-normal px-4">COMPREHENSIVE PLAN + <br>UNIQUE ADD-ONS</p>
-				</div>
-				<div class="flex px-8 pt-8 items-center">
-					<img src="https://img.icons8.com/ios/50/000000/uber.png">
-					<p class="this-white font-bold md:leading-normal px-4">	COVERS E-HAILING &<br>GRAB CARS</p>
-				</div>
-				<div class="flex px-8 pt-8 items-center">
-					<img src="https://img.icons8.com/doodle/48/000000/discount.png">
-					<p class="this-white font-bold md:leading-normal px-4">20% SAFE DRIVING<br> DISCOUNT!</p>
+					<p class="this-white font-bold md:leading-normal px-6">Umur kemasukan - 30 Hari<br>Umur terakhir - 79 Tahun</p>
 				</div>
 			</div>
 			<div class="flex flex-col">
 				<div class="flex p-8 items-center">
-					<img src="https://img.icons8.com/color/48/000000/data-in-both-directions.png">
-					<p class="this-white font-bold md:leading-normal px-4">CAN TRANSFER NCD FROM<br> ANOTHER INSURANCE CO.</p>
+					<img src="/images/invoice.png">
+					<p class="this-white font-bold px-4">Tanggungan Kos Medikal<br>sehingga<span class="text-xl" style="color:#FFC360;"> RM 300,000</span></p>
 				</div>
-				<div class="flex px-8 pt-1 items-center">
-					<img src="https://img.icons8.com/color/48/000000/fiat-500.png">
-					<p class="this-white font-bold md:leading-normal px-5">FOR PRIVATE CARS <br>< 20 YEARS OLD</p>
-				</div>
-				<div class="flex px-8 items-center pt-8">
-					<img src="https://img.icons8.com/color/48/000000/life-cycle-female.png">
-					<p class="this-white font-bold md:leading-normal px-5">FOR 18 - 75 YEAR OLD<br> DRIVERS</p>
+				<div class="flex px-8 items-center">
+					<img class="" src="/images/secure.png">
+					<p class="this-white font-bold px-5">Kematian kemalangan / Kecatatan<br>Pampasan <span class="text-xl" style="color:#FFC360;">RM 300,000</span></p>
 				</div>
 			</div>
 		</div>
@@ -170,18 +163,7 @@
 			<img class="p-4 -mx-16" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<div class="flex flex-col border border-grey rounded-lg p-4 my-6 mx-auto px-16">
-		<p class="text-2xl this-black font-bold">Follow these 2 simple steps to redeem your <span class="text-3xl font-bold this-blue">RM20 Cashback</span></p>
-		<div class="flex items-center my-4">
-			<img src="https://img.icons8.com/dusk/64/000000/1.png" class="pr-4">
-			<p class="text-xl this-black">Buy an AXA Motor Insurance from<br> <span class="this-blue font-bold">PolicyStreet</span> via the <a class="no-underline this-blue" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB">Get Offer link</a></p>
-		</div>
-		<div class="flex items-center my-4">
-			<img src="https://img.icons8.com/dusk/64/000000/2.png" class="pr-4">
-			<p class="text-xl this-black">Send your eCover Note to <span class="this-blue font-bold">admin@policystreet.com</span><br> to redeem your RM20 cashback.</p>
-		</div>
-	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB">Get Offer Now</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=GA">Dapatkan Sekarang</a>
 </div>
 
 @endsection
@@ -218,7 +200,7 @@ $(document).ready(function(){
 
 		// Output the result in an element with id="demo"
 		$("#days").text(days);
-		$("#bold-days").text(days + " Days");
+		$("#bold-days").text(days + " Hari");
 		$("#hours").text(hours);
 		$("#minutes").text(minutes);
 		$("#seconds").text(seconds);

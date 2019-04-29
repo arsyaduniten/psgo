@@ -103,12 +103,6 @@
 						</div>
 					</div>
 					<div>
-						<p class="font-bold text-center text-xl text-white">
-							<span class="text-yellow-dark line-through">
-								<span class="text-white">RM 16</span>
-							</span>
-							Original Price
-						</p>
 						<p class="font-bold text-center pt-1 text-3xl text-white">
 							RM0 Stamp Duty Fee
 						</p>
@@ -168,7 +162,7 @@
 			<img class="p-4 -mx-16" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/103-2-1.html">Get Offer Now</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=FB">Get Offer Now</a>
 </div>
 
 @endsection
@@ -177,6 +171,7 @@
 @section('script')
 <script>
 $(document).ready(function(){
+	var today = new Date();
 	blurAll();
 	if(localStorage.countDownDate == null){
 		var countDownDate = new Date();

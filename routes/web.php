@@ -13,7 +13,10 @@
 
 Route::get('/', 'PlanController@index');
 
-Route::view('/axa/travel', 'public.axa-travel');
+Route::view('/axa/travel/eng', 'public.axa-travel');
+Route::view('/axa/travel/bm', 'public.axa-travel-bm');
+Route::view('/axa/motor/eng', 'public.axa-motor');
+Route::view('/axa/motor/bm', 'public.axa-motor-bm');
 
 Route::post('/getplans', 'PlanController@getplans')->name("getplans");
 
