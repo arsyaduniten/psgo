@@ -92,24 +92,25 @@
 			    </g>
 			</svg>
 			<div class="promotion-banner flex">
-				<div class="price-section flex">
-					<p class="py-8 px-4 text-xl this-white">As low as</p>
-					<div class="flex flex-col py-4 px-4 pr-8 this-white">
-						<div class="pricing-container flex p-2 justify-center">
-							<div class="text-xs">RM</div>
-							<div class="text-5xl font-bold -mt-3">12</div>
+				<div class="price-section flex items-center px-4">
+					<div class="flex flex-col">
+						<p class="py-2 px-4 text-xl this-white">As low as</p>
+						<div class="flex flex-col py-2 px-4 pr-8 this-white">
+							<div class="pricing-container flex p-2 justify-center">
+								<div class="text-xs">RM</div>
+								<div class="text-5xl font-bold -mt-3">12</div>
+							</div>
 						</div>
-						<p class="font-bold text-center pt-2 text-xl text-white">
+					</div>
+					<div>
+						<p class="font-bold text-center text-xl text-white">
 							<span class="text-yellow-dark line-through">
 								<span class="text-white">RM 16</span>
 							</span>
 							Original Price
 						</p>
-						<p class="font-bold text-center pt-1 text-xl text-white">
-							<span class="text-yellow-dark line-through">
-								<span class="text-white">RM 10</span>
-							</span>
-							Stamp Duty Fee
+						<p class="font-bold text-center pt-1 text-3xl text-white">
+							RM0 Stamp Duty Fee
 						</p>
 					</div>
 				</div>
@@ -138,9 +139,9 @@
 				</div>
 			</div>
 		</div>
-	<div class="product-banner flex flex-col mt-6 px-6 mx-auto shadow-md">
-		<p class="font-bold text-2xl px-4 pt-4 pb-1" style="color:#E3F0FF;">AXA Smart Traveller</p>
-		<p class="text-white px-4">What makes AXA Smart Traveller one of the most popular travel insurance in town?</p>
+	<div class="product-banner flex flex-col mt-6 px-16 mx-auto shadow-md">
+		<p class="-mx-12 font-bold text-2xl px-4 pt-4 pb-1" style="color:#E3F0FF;">AXA Smart Traveller</p>
+		<p class="-mx-12 text-white px-4">What makes AXA Smart Traveller one of the most popular travel insurance in town?</p>
 		<div class="flex flex-col md:flex-row">
 			<div class="flex flex-col">
 				<div class="flex p-8 items-center">
@@ -164,7 +165,7 @@
 			</div>
 		</div>
 		<div class="text-right">
-			<img class="p-4 -mx-5" src="/images/axa-logo.png">
+			<img class="p-4 -mx-16" src="/images/axa-logo.png">
 		</div>
 	</div>
 	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/103-2-1.html">Get Offer Now</a>
