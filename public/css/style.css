@@ -27,10 +27,10 @@ body{
 
 .action-btn{
 	border-radius: 19.5px;
-	background-color: #ffd200;
+	background-color: #0A3C77;
 	letter-spacing: -0.5px;
 	text-align: center;
-	color: #0a3c77;
+	color: white;
 }
 
 select {

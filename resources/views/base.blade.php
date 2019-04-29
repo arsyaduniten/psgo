@@ -14,7 +14,7 @@
 	<style type="text/css">
 		
 	</style>
-	<link rel="stylesheet" href="/css/style.css?v=1.30">
+	<link rel="stylesheet" href="/css/style.css?v=1.32">
 	@yield('head')
 </head>
 <body>
