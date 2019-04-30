@@ -129,7 +129,7 @@
 							<p class="this-white">Seconds</p>
 						</div>
 					</div> -->
-					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=FB" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Get Offer Now</a>
+					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1={{ Request::get('med') }}" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Get Offer Now</a>
 				</div>
 			</div>
 		</div>
@@ -162,7 +162,7 @@
 			<img class="p-4 -mx-16" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=FB">Get Offer Now</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1={{ Request::get('med') }}">Get Offer Now</a>
 </div>
 
 @endsection

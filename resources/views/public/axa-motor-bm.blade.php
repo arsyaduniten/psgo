@@ -129,7 +129,7 @@
 							<p class="this-white">Seconds</p>
 						</div>
 					</div> -->
-					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=GA" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Dapatkan Sekarang</a>
+					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Dapatkan Sekarang</a>
 				</div>
 			</div>
 		</div>
@@ -174,14 +174,14 @@
 		<p class="text-2xl this-black font-bold">Ikut 2 langkah berikut untuk menebus <span class="text-3xl font-bold this-blue">RM20 Rebat</span> anda</p>
 		<div class="flex items-center my-4">
 			<img src="https://img.icons8.com/dusk/64/000000/1.png" class="pr-4">
-			<p class="text-xl this-black">Beli Insurans Kereta dari <span class="this-blue font-bold">PolicyStreet</span><br> melalui <a class="no-underline this-blue" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=GA">Dapatkan Tawaran</a> di bawah.</p>
+			<p class="text-xl this-black">Beli Insurans Kereta dari <span class="this-blue font-bold">PolicyStreet</span><br> melalui <a class="no-underline this-blue" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}">Dapatkan Tawaran</a> di bawah.</p>
 		</div>
 		<div class="flex items-center my-4">
 			<img src="https://img.icons8.com/dusk/64/000000/2.png" class="pr-4">
 			<p class="text-xl this-black">Hantar eCover Note ke <span class="this-blue font-bold">admin@policystreet.com</span><br>untuk menerima RM20 cashback.</p>
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=GA">Dapatkan Sekarang</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}">Dapatkan Sekarang</a>
 </div>
 
 @endsection

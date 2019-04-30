@@ -129,7 +129,7 @@
 							<p class="this-white">Seconds</p>
 						</div>
 					</div> -->
-					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Get Offer Now</a>
+					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Get Offer Now</a>
 				</div>
 			</div>
 		</div>
@@ -174,14 +174,14 @@
 		<p class="text-2xl this-black font-bold">Follow these 2 simple steps to redeem your <span class="text-3xl font-bold this-blue">RM20 Cashback</span></p>
 		<div class="flex items-center my-4">
 			<img src="https://img.icons8.com/dusk/64/000000/1.png" class="pr-4">
-			<p class="text-xl this-black">Buy an AXA Motor Insurance from<br> <span class="this-blue font-bold">PolicyStreet</span> via the <a class="no-underline this-blue" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB">Get Offer link</a></p>
+			<p class="text-xl this-black">Buy an AXA Motor Insurance from<br> <span class="this-blue font-bold">PolicyStreet</span> via the <a class="no-underline this-blue" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}">Get Offer link</a></p>
 		</div>
 		<div class="flex items-center my-4">
 			<img src="https://img.icons8.com/dusk/64/000000/2.png" class="pr-4">
 			<p class="text-xl this-black">Send your eCover Note to <span class="this-blue font-bold">admin@policystreet.com</span><br> to redeem your RM20 cashback.</p>
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1=FB">Get Offer Now</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=105&url=3&tid1={{ Request::get('med') }}">Get Offer Now</a>
 </div>
 
 @endsection

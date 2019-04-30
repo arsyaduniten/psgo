@@ -105,7 +105,7 @@
 					<div class="text-5xl text-white font-bold pr-4">+</div>
 					<div>
 						<p class="font-bold text-left pt-1 text-3xl text-white">
-							RM10 Setem Duti <br><span class="text-5xl">Percuma</span>
+							RM0 Setem Duti
 						</p>
 					</div>
 				</div>
@@ -130,7 +130,7 @@
 							<p class="this-white">Seconds</p>
 						</div>
 					</div> -->
-					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=GA" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Dapatkan Sekarang</a>
+					<a href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1={{ Request::get('med') }}" class="affiliate-link shadow-md my-2 p-2 pb-3 px-12 font-bold text-xl no-underline action-btn">Dapatkan Sekarang</a>
 				</div>
 			</div>
 		</div>
@@ -163,7 +163,7 @@
 			<img class="p-4 -mx-16" src="/images/axa-logo.png">
 		</div>
 	</div>
-	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1=GA">Dapatkan Sekarang</a>
+	<a class="text-4xl font-bold mx-auto antialiased py-12 affiliate-link" style="color:#0071FF;" href="https://axa.idevaffiliate.com/idevaffiliate.php?id=103&url=2&tid1={{ Request::get('med') }}">Dapatkan Sekarang</a>
 </div>
 
 @endsection
