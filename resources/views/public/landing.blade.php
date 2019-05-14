@@ -15,6 +15,13 @@
 	p span{
 		display: inline-block;
 	}
+	select {
+	    border-radius: 0;
+	}
+	.disabledDiv{
+	    pointer-events: none !important;
+	    opacity: 0.4 !important;
+	}
 </style>
 @endsection
 
@@ -41,15 +48,12 @@
 	<img class="mx-auto hidden lg:block" src="/images/travel-ai.png" style="height: 200pt;">
 	<p class="pt-4 text-center text-xl md:text-4xl this-black font-bold">You've earned your vacation. <span>Let us help you Protect it.</span></p>
 	<p class="pt-1 text-center text-xs md:text-xl text-grey-dark md:this-black font-bold">Get your travel insurance <span> quotation in 10 seconds.</span></p>
-		<form autocomplete="off" class="flex justify-center mx-auto flex-col text-center md:text-left md:flex-row bg-white shadow-1 rounded md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
+		<form autocomplete="off" class="flex flex-wrap mx-auto flex-col text-center md:text-left md:py-2 mt-6" id="quote_form" action="{{ route('getplans') }}" method="post">
 			@csrf
-			<div class="mx-2">
-				<img class="my-5 mx-2" src="/images/location-ic.png" style="height: 20px; width: 20px;">
-			</div>
-			<div class="flex flex-no-grow max-w-sm">
-				<div class="flex flex-col">
-					<p class="md:px-4 p-2 font-bold text-sm this-grey">Select Country</p>
-					<select class="-my-2 pl-4 py-1 bg-white rounded-l-lg font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
+			<div class="flex my-2">
+				<div class="flex flex-col bg-white shadow-1 mx-2">
+					<p class="md:px-4 p-2 font-bold text-sm this-grey">Travelling to</p>
+					<select class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl text-center md:text-left" name="destination" id="destination">
 					@foreach($countries as $country)
 					@if($country != "All other countries" and $country != "0")
 					<option value="{{ $country }}">{{ $country }}</option>
@@ -58,36 +62,62 @@
 					<option value="All other countries">All other countries</option>
 					</select>
 				</div>
+				<div class="flex flex-col bg-white shadow-1 mx-2 flex-1">
+					<p class="md:px-4 p-2 font-bold text-sm this-grey">Travelling as</p>
+					<select class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl text-center md:text-left" name="travel_as" id="travel_as">
+						<option value="single">Just Me</option>
+						<option value="couple">Couple</option>
+						<option value="friends">Group of Friends</option>
+						<option value="family">Family</option>
+					</select>
+				</div>
 			</div>
-			<div class="border border-grey-light"></div>
-			<div class="flex">
-				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
-				<div class="">
+			<div class="flex my-2">
+				<div class="flex flex-col bg-white shadow-1 m-2">
 					<p class="px-4 p-2 font-bold text-sm this-grey">Depart date</p>
 					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl text-center md:text-left datepicker" type="text" name="depart_date" id="depart" placeholder="dd-mm-yyyy">
 				</div>
-			</div>
-			<div class="border border-grey-light"></div>
-			<div class="flex">
-				<img class="my-5 mx-2" src="/images/calendar-ic.png" style="height: 20px; width: 20px;">
-				<div class="w-full md:w-auto">
+				<div class="flex-1 flex flex-col bg-white shadow-1 m-2">
 					<p class="px-4 p-2 font-bold text-sm this-grey">Return date</p>
-					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl rounded-r-lg text-center md:text-left datepicker" type="text" name="return_date" id="return" placeholder="dd-mm-yyyy">
+					<input class="-my-2 pl-4 bg-white font-bold input-color text-xl text-center md:text-left datepicker" type="text" name="return_date" id="return" placeholder="dd-mm-yyyy">
 				</div>
 			</div>
-			<div class="border border-grey-light"></div>
-			<div class="flex mx-auto md:mx-0">
-				<img class="my-5 mx-2 cursor-pointer" src="/images/minus-ic.png" id="minus-btn" style="height: 30px; width: 30px;">
-				<div class="">
-					<p class="px-4 p-2 font-bold text-sm this-grey">Traveller</p>
-					<input class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl rounded-r-lg w-32" type="text" disabled value="1" name="traveller">
+			<div class="flex my-2">
+				<div class="flex flex bg-white shadow-1 mx-2">
+					<img class="my-5 mx-2 cursor-pointer minus-btn" src="/images/minus-ic.png" data-id="adults" style="height: 30px; width: 30px;">
+					<div class="">
+						<p class="px-4 p-2 font-bold text-sm this-grey">Adult(s)</p>
+						<input class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl w-16" type="text" disabled value="1" name="adults">
+					</div>
+					<div class="flex flex-row md:flex-row-reverse">
+						<img class="my-5 mx-2 cursor-pointer plus-btn" src="/images/plus-ic.png" data-id="adults" style="height: 30px; width: 30px;">
+					</div>
 				</div>
-				<div class="flex flex-row md:flex-row-reverse">
-					<img class="my-5 mx-2 cursor-pointer" src="/images/plus-ic.png" id="plus-btn" style="height: 30px; width: 30px;">
-					<img class="my-5 mx-2 md:ml-0" src="/images/traveller.png" style="height: 20px; width: 20px;">
+				<div class="flex flex bg-white shadow-1 mx-2 disabledDiv" id="kids-section">
+					<img class="my-5 mx-2 cursor-pointer minus-ic-btn" src="/images/minus-ic.png" data-id="kids" style="height: 30px; width: 30px;">
+					<div class="">
+						<p class="px-4 p-2 font-bold text-sm this-grey">Kid(s)</p>
+						<input class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl w-16" type="text" disabled value="1" name="kids">
+					</div>
+					<div class="flex flex-row md:flex-row-reverse">
+						<img class="my-5 mx-2 cursor-pointer plus-btn" src="/images/plus-ic.png" data-id="kids" style="height: 30px; width: 30px;">
+					</div>
+				</div>
+				<div class="flex flex bg-white shadow-1 mx-2 disabledDiv" id="seniors-section">
+					<img class="my-5 mx-2 cursor-pointer minus-btn" src="/images/minus-ic.png" data-id="kids" style="height: 30px; width: 30px;">
+					<div class="">
+						<p class="px-4 p-2 font-bold text-sm this-grey">Senior(s)</p>
+						<input class="-my-2 pl-4 py-1 bg-white font-bold input-color text-xl w-16" type="text" disabled value="1" name="seniors">
+					</div>
+					<div class="flex flex-row md:flex-row-reverse">
+						<img class="my-5 mx-2 cursor-pointer plus-btn" src="/images/plus-ic.png" data-id="kids" style="height: 30px; width: 30px;">
+					</div>
 				</div>
 			</div>
-			<button id="submit-btn" class="p-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-center md:rounded font-bold whatsapp-btn text-sm" type="submit">Get Quotation</button>
+			<div class="flex w-full">
+				<button id="submit-btn" class="flex-1 p-4 my-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-start md:rounded font-bold whatsapp-btn text-sm border border-blue-600" type="submit">Get Quotation</button>
+				<button class="flex-1 bg-transparent hover:bg-blue-600 this-black hover:text-white p-4 my-4 py-5 rounded-b w-full md:w-auto md:mx-2 self-start md:rounded font-bold text-sm border border-blue-600" type="reset">Reset</button>
+			</div>
 		</form>
 </div>
 @endsection
@@ -115,20 +145,31 @@ $(document).ready(function(){
 	$('input[name=destination]').focus();
 	$('#submit-btn').on('click', function(e){
 		e.preventDefault();
-		$("input[name=traveller]").removeAttr("disabled");
+		$("input[name="+$(this).attr('data-id')+"]").removeAttr("disabled");
 		blurAll();
 		$("#quote_form").submit();
 	});
-	$('#minus-btn').on('click', function(){
-		if($("input[name=traveller]").val() == 1){
+	$('.minus-btn').on('click', function(){
+		if($("input[name="+$(this).attr('data-id')+"]").val() == 1){
 			return;
 		}
-		var traveller = Number($("input[name=traveller]").val()) - 1;
-		$("input[name=traveller]").val(traveller);
+		var traveller = Number($("input[name="+$(this).attr('data-id')+"]").val()) - 1;
+		$("input[name="+$(this).attr('data-id')+"]").val(traveller);
 	});
-	$('#plus-btn').on('click', function(){
-		var traveller = Number($("input[name=traveller]").val()) + 1;
-		$("input[name=traveller]").val(traveller);
+	$('.plus-btn').on('click', function(){
+		var traveller = Number($("input[name="+$(this).attr('data-id')+"]").val()) + 1;
+		$("input[name="+$(this).attr('data-id')+"]").val(traveller);
+	});
+
+	$('#travel_as').on('change', function (e) {
+	    var val = this.value;
+	    console.log(val);
+	    if(val == 'family'){
+	    	$("#kids-section, #seniors-section").removeClass('disabledDiv');
+	    }
+	    if(val == 'single' || val == 'couple' || val == 'friends'){
+	    	$("#kids-section, #seniors-section").addClass('disabledDiv');
+	    }
 	});
 });
 
